@@ -3,13 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Static Site Example</title>
+    <title>2DC - Dancing Dragons Counseling</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
+        }
+
+        /* Header image styling */
+        .header-image-container {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 2000;
+        }
+
+        .header-image {
+            width: 80px; /* Small initial size */
+            transition: width 0.3s, height 0.3s; /* Smooth transition */
+            cursor: pointer;
+        }
+
+        .header-image:hover {
+            width: 200px; /* Enlarged size on hover */
         }
 
         /* Menu styling */
@@ -21,6 +39,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            left: 0;
         }
 
         nav ul {
@@ -55,6 +74,56 @@
         #contact { background-color: #E0E0E0; }
         #testimonials { background-color: #F0F0F0; }
 
+        /* Carousel styling */
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px 0;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 20px; /* Space between images */
+        }
+
+        .carousel img {
+            height: 200px; /* Minimum height */
+            max-height: 1000px; /* Maximum height */
+            width: auto;
+            transition: height 0.3s;
+            cursor: pointer;
+        }
+
+        .carousel img:hover {
+            height: 300px; /* Hover effect to enlarge slightly */
+        }
+
+        .carousel-button {
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .carousel-button.left {
+            left: 10px;
+        }
+
+        .carousel-button.right {
+            right: 10px;
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             nav ul {
@@ -65,10 +134,23 @@
             nav ul li {
                 margin: 10px 0;
             }
+
+            .carousel-container {
+                padding: 10px 0;
+            }
+
+            .carousel-button {
+                padding: 5px;
+            }
         }
     </style>
 </head>
 <body>
+
+<!-- Header Image -->
+<div class="header-image-container">
+    <img src="imgs/img.png" alt="Dancing Dragons" class="header-image">
+</div>
 
 <!-- Navigation Menu -->
 <nav>
@@ -83,26 +165,57 @@
 <!-- Sections -->
 <section id="about">
     <h2>About</h2>
-    <p>This is the About section. Here you can add content about the website or organization.</p>
+    <p>Affordable alternative to "therapy" - we practice practical coaching and counseling, internationally. </p>
+    <p>Masculine and feminine coaching + counseling.</p>
+    <p>Adaptive styles focused on solutions; with goal-setting and behavioral changes, mindset changes.</p>
+    <p>International (geographically unbounded) - English only for now.</p>
+    <p>Conservative and practical coaching for those ages 15+</p>
+    <p>Holistic, compassionate, and future-focused. Philosophically-grounded but practical.</p>
+    <p>Discuss issues surrounding:</p>
+    <ul>
+        <li>Relationships</li>
+        <li>Stressors</li>
+        <li>Basic money/business/finance</li>
+        <li>Children/parents</li>
+        <li>Goals, education, career</li>
+        <li>Solutions</li>
+    </ul>
 </section>
 
 <section id="people">
     <h2>People</h2>
-    <p>This is the People section. Highlight key people involved in your organization or service.</p>
+    <div class="carousel-container">
+        <button class="carousel-button left" onclick="scrollCarousel(-1)">&#8249;</button>
+        <div class="carousel">
+            <!-- Example SVG Images -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/SVG_logo.svg" alt="Person 1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitmap_VS_SVG.svg" alt="Person 2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Illustration_vectorielle_d%27un_cheval.svg" alt="Person 3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/SVG_logo.svg" alt="Person 4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/SVG_logo.svg" alt="Person 5">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/SVG_logo.svg" alt="Person 6">
+            <!-- Add more SVG images as needed -->
+        </div>
+        <button class="carousel-button right" onclick="scrollCarousel(1)">&#8250;</button>
+    </div>
 </section>
 
 <section id="contact">
     <h2>Contact</h2>
-    <p>This is the Contact section. Include contact details or a form here.</p>
+    <p>Please reach out for more information on our services.</p>
+    <p>Email: example@example.com</p>
+    <p>Phone: +1-234-567-8900</p>
 </section>
 
 <section id="testimonials">
     <h2>Testimonials</h2>
-    <p>This is the Testimonials section. Showcase feedback or reviews here.</p>
+    <p>"This service has been transformative for me. The coaching provided a practical, grounded approach to my challenges." - Client A</p>
+    <p>"Highly recommend for anyone seeking clarity and practical guidance in their life." - Client B</p>
 </section>
 
-<!-- JavaScript for Smooth Scrolling -->
+<!-- JavaScript for Smooth Scrolling and Infinite Carousel -->
 <script>
+  // Smooth Scrolling
   document.querySelectorAll('nav ul li a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -113,6 +226,21 @@
       });
     });
   });
+
+  // Infinite Carousel Scrolling Logic
+  let currentIndex = 0; // Track current index for carousel position
+
+  function scrollCarousel(direction) {
+    const carousel = document.querySelector('.carousel');
+    const items = carousel.querySelectorAll('img');
+    const itemWidth = items[0].clientWidth + 20; // 20px is the gap between images
+    const totalItems = items.length;
+
+    currentIndex = (currentIndex + direction + totalItems) % totalItems; // Calculate new index using modulus
+
+    // Use transform to move the carousel to the calculated position
+    carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+  }
 </script>
 </body>
 </html>
