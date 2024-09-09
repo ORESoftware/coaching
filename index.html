@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Site Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Menu styling */
+        nav {
+            background-color: #8B4513; /* Brown color */
+            color: #fff;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Sections styling */
+        section {
+            padding: 100px 20px;
+            margin-top: 60px; /* Offset for fixed menu */
+            background-color: #C0C0C0; /* Silver color */
+        }
+
+        #about { background-color: #C0C0C0; }
+        #people { background-color: #D3D3D3; }
+        #contact { background-color: #E0E0E0; }
+        #testimonials { background-color: #F0F0F0; }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Menu -->
+<nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#people">People</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+    </ul>
+</nav>
+
+<!-- Sections -->
+<section id="about">
+    <h2>About</h2>
+    <p>This is the About section. Here you can add content about the website or organization.</p>
+</section>
+
+<section id="people">
+    <h2>People</h2>
+    <p>This is the People section. Highlight key people involved in your organization or service.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>This is the Contact section. Include contact details or a form here.</p>
+</section>
+
+<section id="testimonials">
+    <h2>Testimonials</h2>
+    <p>This is the Testimonials section. Showcase feedback or reviews here.</p>
+</section>
+
+<!-- JavaScript for Smooth Scrolling -->
+<script>
+  document.querySelectorAll('nav ul li a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      window.scrollTo({
+        top: target.offsetTop - 50, // Adjusted to account for fixed menu
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+</body>
+</html>
