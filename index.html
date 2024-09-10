@@ -40,6 +40,9 @@
             top: 0;
             z-index: 1000;
             left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         nav ul {
@@ -60,6 +63,49 @@
             font-weight: bold;
             font-size: 16px;
             cursor: pointer;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                background-color: #8B4513;
+                width: 100%;
+                padding: 20px;
+                margin: 0;
+                display: none; /* Hidden by default */
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: flex; /* Show hamburger icon */
+            }
+        }
+
+        /* Menu show class */
+        .show-menu {
+            display: flex !important; /* Display menu when toggled */
         }
 
         /* Sections styling */
@@ -147,26 +193,6 @@
             right: 10px;
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            .carousel-container {
-                padding: 10px 0;
-            }
-
-            .carousel-button {
-                padding: 5px;
-            }
-        }
-
         /* Drag and Drop Styling */
         .find-counselor {
             padding: 50px 20px;
@@ -189,13 +215,16 @@
         }
 
         .bubble {
+            display: flex;
+            align-items: center;
             padding: 10px 20px;
             margin-bottom: 10px;
             background-color: #D3D3D3;
             border-radius: 20px;
             cursor: grab;
-            text-align: center;
+            text-align: left;
             user-select: none;
+            position: relative;
         }
 
         .bubble.dragging {
@@ -208,6 +237,12 @@
             border-radius: 20px;
             height: 40px;
             margin-bottom: 10px;
+        }
+
+        .bubble .order-number {
+            font-weight: bold;
+            color: #8B4513; /* Brown color */
+            margin-right: 10px;
         }
 
         #search-button {
@@ -236,7 +271,12 @@
 
 <!-- Navigation Menu -->
 <nav>
-    <ul>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <ul id="menu">
         <li><a href="#about">About</a></li>
         <li><a href="#people">People</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -364,7 +404,7 @@
     <div id="search-results"></div>
 </section>
 
-<!-- JavaScript for Smooth Scrolling and Infinite Carousel -->
+<!-- JavaScript for Smooth Scrolling, Infinite Carousel, and Hamburger Menu -->
 <script>
   // Smooth Scrolling
   document.querySelectorAll('nav ul li a').forEach(anchor => {
@@ -405,6 +445,7 @@
     bubble.addEventListener('dragend', (e) => {
       e.target.classList.remove('dragging');
       draggedElement = null;
+      updateOrderNumbers();
     });
   });
 
@@ -434,12 +475,35 @@
     }, { offset: Number.NEGATIVE_INFINITY }).element;
   }
 
+  // Update order numbers on bubbles in the right group
+  function updateOrderNumbers() {
+    const rightGroup = document.getElementById('group-right');
+    const bubbles = [...rightGroup.querySelectorAll('.bubble')];
+    bubbles.forEach((bubble, index) => {
+      if (!bubble.querySelector('.order-number')) {
+        const orderNumber = document.createElement('span');
+        orderNumber.className = 'order-number';
+        bubble.prepend(orderNumber);
+      }
+      bubble.querySelector('.order-number').textContent = index + 1;
+    });
+  }
+
   document.getElementById('search-button').addEventListener('click', () => {
     const selectedBubbles = [...document.getElementById('group-right').querySelectorAll('.bubble')];
-    const searchText = selectedBubbles.map(bubble => bubble.textContent).join(', ');
+    const searchText = selectedBubbles.map((bubble, index) => {
+      const text = bubble.textContent.replace(/^\d+\s*/, ''); // Remove number from text
+      return `${index + 1}. ${text}`;
+    }).join(', ');
 
     document.getElementById('search-results').textContent = `You searched for: ${searchText}`;
   });
+
+  // Hamburger Menu Toggle
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('show-menu');
+  }
 </script>
 </body>
 </html>
