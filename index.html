@@ -30,16 +30,37 @@
             width: 200px; /* Enlarged size on hover */
         }
 
+        /* Social media icons styling */
+        .social-media-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 2000;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-media-container a {
+            display: block;
+            width: 30px;
+            height: 30px;
+        }
+
+        .social-media-container img {
+            width: 100%;
+            height: auto;
+        }
+
         /* Menu styling */
         nav {
             background-color: #8B4513; /* Brown color */
             color: #fff;
             padding: 15px;
             position: fixed;
-            width: 100%;
+            width: calc(100% - 100px); /* Adjusted to leave space for the logo */
             top: 0;
             z-index: 1000;
-            left: 0;
+            left: 90px; /* Offset from the logo */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -81,6 +102,11 @@
 
         /* Responsive design */
         @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                left: 0;
+            }
+
             nav ul {
                 flex-direction: column;
                 align-items: center;
@@ -267,6 +293,16 @@
 <!-- Header Image -->
 <div class="header-image-container">
     <img src="imgs/img.png" alt="Dancing Dragons" class="header-image">
+</div>
+
+<!-- Social Media Icons -->
+<div class="social-media-container">
+    <a href="https://www.instagram.com" target="_blank">
+        <img src="imgs/instagram-icon.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com" target="_blank">
+        <img src="imgs/facebook-icon.png" alt="Facebook">
+    </a>
 </div>
 
 <!-- Navigation Menu -->
