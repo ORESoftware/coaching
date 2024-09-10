@@ -483,6 +483,7 @@
 
   // Drag and Drop Functionality (Touch Support Added)
   let draggedElement = null;
+  let currentTouchTarget = null;
 
   document.querySelectorAll('.bubble').forEach(bubble => {
     bubble.addEventListener('dragstart', (e) => {
@@ -500,11 +501,13 @@
     bubble.addEventListener('touchstart', (e) => {
       draggedElement = e.target;
       e.target.classList.add('dragging');
+      currentTouchTarget = e.target;
     }, { passive: true });
 
     bubble.addEventListener('touchend', (e) => {
       e.target.classList.remove('dragging');
       draggedElement = null;
+      currentTouchTarget = null;
       updateOrderNumbers();
     }, { passive: true });
   });
@@ -522,12 +525,13 @@
 
     group.addEventListener('touchmove', (e) => {
       e.preventDefault();
+      if (!currentTouchTarget) return;
       const touch = e.touches[0];
       const afterElement = getDragAfterElement(group, touch.clientY);
       if (afterElement == null) {
-        group.appendChild(draggedElement);
+        group.appendChild(currentTouchTarget);
       } else {
-        group.insertBefore(draggedElement, afterElement);
+        group.insertBefore(currentTouchTarget, afterElement);
       }
     }, { passive: false });
   });
@@ -551,12 +555,19 @@
     const rightGroup = document.getElementById('group-right');
     const bubbles = [...rightGroup.querySelectorAll('.bubble')];
     bubbles.forEach((bubble, index) => {
-      if (!bubble.querySelector('.order-number')) {
-        const orderNumber = document.createElement('span');
+      let orderNumber = bubble.querySelector('.order-number');
+      if (!orderNumber) {
+        orderNumber = document.createElement('span');
         orderNumber.className = 'order-number';
         bubble.prepend(orderNumber);
       }
-      bubble.querySelector('.order-number').textContent = index + 1;
+      orderNumber.textContent = index + 1;
+    });
+
+    // Remove order numbers from bubbles in the left group
+    const leftGroup = document.getElementById('group-left');
+    leftGroup.querySelectorAll('.bubble .order-number').forEach(orderNumber => {
+      orderNumber.remove();
     });
   }
 
