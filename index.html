@@ -325,12 +325,12 @@
         <div></div>
     </div>
     <ul id="menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#people">People/Counselors</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#quotes">Quotes for Inspo</a></li>
-        <li><a href="#find-counselor">Find a Counselor</a></li>
+        <li><a href="#about" onclick="hideMenu()">About</a></li>
+        <li><a href="#people" onclick="hideMenu()">People/Counselors</a></li>
+        <li><a href="#contact" onclick="hideMenu()">Contact</a></li>
+        <li><a href="#testimonials" onclick="hideMenu()">Testimonials</a></li>
+        <li><a href="#quotes" onclick="hideMenu()">Quotes for Inspo</a></li>
+        <li><a href="#find-counselor" onclick="hideMenu()">Find a Counselor</a></li>
     </ul>
 </nav>
 
@@ -585,6 +585,12 @@
   function toggleMenu() {
     const menu = document.getElementById('menu');
     menu.classList.toggle('show-menu');
+  }
+
+  // Hide menu after clicking a menu item
+  function hideMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.remove('show-menu');
   }
 </script>
 </body>
