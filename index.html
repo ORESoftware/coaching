@@ -497,19 +497,19 @@
       updateOrderNumbers();
     });
 
-    // Add touch support for mobile
+    // Improved touch support for mobile
     bubble.addEventListener('touchstart', (e) => {
       draggedElement = e.target;
       e.target.classList.add('dragging');
       currentTouchTarget = e.target;
-    }, { passive: true });
+    }, { passive: false });
 
     bubble.addEventListener('touchend', (e) => {
       e.target.classList.remove('dragging');
       draggedElement = null;
       currentTouchTarget = null;
       updateOrderNumbers();
-    }, { passive: true });
+    }, { passive: false });
   });
 
   document.querySelectorAll('.bubble-group').forEach(group => {
@@ -533,7 +533,7 @@
       } else {
         group.insertBefore(currentTouchTarget, afterElement);
       }
-    }, { passive: false });
+    }, { passive: false }); // Prevents default touch actions
   });
 
   function getDragAfterElement(group, y) {
@@ -550,7 +550,6 @@
     }, { offset: Number.NEGATIVE_INFINITY }).element;
   }
 
-  // Update order numbers on bubbles in the right group
   function updateOrderNumbers() {
     const rightGroup = document.getElementById('group-right');
     const bubbles = [...rightGroup.querySelectorAll('.bubble')];
