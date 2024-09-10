@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +62,7 @@
             color: #fff;
             padding: 15px;
             position: fixed;
-            width: 100%; /* Adjusted to take full width */
+            width: calc(100% - 20px); /* Adjusted to leave space for the logo */
             top: 0;
             z-index: 1000; /* Lower z-index to allow header image to stay above */
             left: 0; /* Start from the left edge */
@@ -100,7 +99,8 @@
             gap: 5px;
             position: fixed; /* Fixed position to stay on top */
             top: 15px; /* Adjusted from the top */
-            right: 10px; /* Positioned to the right */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center alignment correction */
             z-index: 1500; /* Ensure it stays above other elements */
         }
 
@@ -115,8 +115,7 @@
             nav {
                 width: 100%;
                 left: 0;
-                top: 0; /* Start from the top */
-                margin-top: 60px; /* Add margin to push content down */
+                top: 60px; /* Push down to avoid overlapping with the hamburger icon */
             }
 
             nav ul {
@@ -154,21 +153,10 @@
             background-color: #C0C0C0; /* Silver color */
         }
 
-        #about {
-            background-color: #C0C0C0;
-        }
-
-        #people {
-            background-color: #D3D3D3;
-        }
-
-        #contact {
-            background-color: #E0E0E0;
-        }
-
-        #testimonials {
-            background-color: #F0F0F0;
-        }
+        #about { background-color: #C0C0C0; }
+        #people { background-color: #D3D3D3; }
+        #contact { background-color: #E0E0E0; }
+        #testimonials { background-color: #F0F0F0; }
 
         /* Carousel styling */
         .carousel-container {
@@ -312,7 +300,6 @@
         }
     </style>
 </head>
-
 <body>
 
 <!-- Header Image -->
@@ -351,7 +338,7 @@
 <section id="about">
     <h2>About Dancing Dragons Counseling</h2>
     <p>You may have found us via Instagram!</p>
-    <p>We are an affordable alternative to "therapy" - we practice practical coaching and counseling, internationally.</p>
+    <p>We are an affordable alternative to "therapy" - we practice practical coaching and counseling, internationally. </p>
     <p>Masculine and feminine coaching + counseling.</p>
     <p>Adaptive styles focused on solutions; with goal-setting and behavioral changes, mindset changes.</p>
     <p>International (geographically unbounded) - English only for now.</p>
@@ -371,13 +358,105 @@
     </ul>
 </section>
 
-<!-- Additional Sections as needed -->
+<section id="people">
+    <h2>People</h2>
+    <div class="carousel-container">
+        <button class="carousel-button left" onclick="scrollCarousel(-1)">&#8249;</button>
+        <div class="carousel">
+            <!-- Example SVG Images with footers -->
+            <div class="carousel-item">
+                <img src="imgs/dd-cory.jpg" alt="Person 1">
+                <div class="carousel-footer">
+                    <h3>Cory D.</h3>
+                    <p>Expert in relationship coaching.</p>
+                    <p>5 years of experience.</p>
+                    <p>Coach/Counselor.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/dd-djw.jpg" alt="Person 2">
+                <div class="carousel-footer">
+                    <h3>David J.</h3>
+                    <p>Specializes in stress management.</p>
+                    <p>Author of two self-help books.</p>
+                    <p>International Speaker.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/dd-ted.jpg" alt="Person 3">
+                <div class="carousel-footer">
+                    <h3>Ted S.</h3>
+                    <p>Focus on career guidance.</p>
+                    <p>Over 15 years in executive/leadership coaching.</p>
+                    <p>Executive.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/dd-alex.jpeg" alt="Person 4">
+                <div class="carousel-footer">
+                    <h3>Alex M.</h3>
+                    <p>Focus on career guidance.</p>
+                    <p>Over 10 years in coaching.</p>
+                    <p>CEO/Executive.</p>
+                </div>
+            </div>
+            <!-- Add more carousel items as needed -->
+        </div>
+        <button class="carousel-button right" onclick="scrollCarousel(1)">&#8250;</button>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Please reach out for more information on our services.</p>
+    <p>Email: example@example.com</p>
+    <p>Phone: +1-234-567-8900</p>
+</section>
+
+<section id="testimonials">
+    <h2>Testimonials</h2>
+    <p>"This service has been transformative for me. The coaching provided a practical, grounded approach to my challenges." - Client A</p>
+    <p>"Highly recommend for anyone seeking clarity and practical guidance in their life." - Client B</p>
+</section>
+
+<section id="quotes">
+    <h2>Quotes</h2>
+    <p>Avoid ascribing to malice or ignorance what can safely be ascribed to financial poverty.</p>
+    <p>Plans are nothing; planning is everything - eisenhower</p>
+    <p>Life is like riding a bicycle - to stay upright you have to keep moving. -einstein</p>
+    <p>"we have it within our power to begin the world again " - Thomas Paine</p>
+    <p>A civilization rarely outlives its gods - shaw</p>
+    <p>“Problems that remain persistently insoluble should always be suspected as questions asked in the wrong way.” - Alan Watts</p>
+    <p>“Things are as they are. Looking out into the universe at night, we make no comparisons between right and wrong stars, nor between well and badly arranged constellations.”</p>
+    <p>We do not "come into" this world; we come out of it, as leaves from a tree. As the ocean "waves," the universe "peoples." Every individual is an expression of the whole realm of nature, a unique action of the total universe.”</p>
+    <p>"The only man who behaves sensibly is my tailor/(and coach!); he takes my measurements anew every time he sees me, while all the rest go on with their old measurements and expect them to fit me." - GBS </p>
+    <p>When we attempt to exercise power or control over someone else, we cannot avoid giving that person the very same power or control over us.”
+        ― Alan Wilson Watts, The Way of Zen</p>
+</section>
+
+<!-- Find a Counselor Section -->
+<section id="find-counselor" class="find-counselor">
+    <h2>Find a Counselor</h2>
+    <div class="group-container">
+        <div id="group-left" class="bubble-group">
+            <div class="bubble" draggable="true" touch-action="none">Relationship Counseling</div>
+            <div class="bubble" draggable="true" touch-action="none">Stress Management</div>
+            <div class="bubble" draggable="true" touch-action="none">Career Guidance</div>
+            <div class="bubble" draggable="true" touch-action="none">Health & Wellness</div>
+        </div>
+        <div id="group-right" class="bubble-group">
+            <!-- Drop target group -->
+        </div>
+    </div>
+    <button id="search-button">Search</button>
+    <div id="search-results"></div>
+</section>
 
 <!-- JavaScript for Smooth Scrolling, Infinite Carousel, and Hamburger Menu -->
 <script>
   // Smooth Scrolling
   document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
       window.scrollTo({
@@ -514,5 +593,4 @@
   }
 </script>
 </body>
-
 </html>
