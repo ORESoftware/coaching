@@ -17,7 +17,7 @@
             position: fixed;
             top: 10px;
             left: 10px;
-            z-index: 2000;
+            z-index: 1500; /* Higher z-index to stay above the navbar */
         }
 
         .header-image {
@@ -62,13 +62,13 @@
             color: #fff;
             padding: 15px;
             position: fixed;
-            width: calc(100% - 100px); /* Adjusted to leave space for the logo */
+            width: calc(100% - 20px); /* Adjusted to leave space for the logo */
             top: 0;
-            z-index: 1000;
-            left: 90px; /* Offset from the logo */
+            z-index: 1000; /* Lower z-index to allow header image to stay above */
+            left: 0; /* Start from the left edge */
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
         }
 
         nav ul {
