@@ -166,6 +166,65 @@
                 padding: 5px;
             }
         }
+
+        /* Drag and Drop Styling */
+        .find-counselor {
+            padding: 50px 20px;
+            background-color: #E6E6FA; /* Lavender color */
+        }
+
+        .group-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .bubble-group {
+            width: 45%;
+            border: 2px dashed #8B4513; /* Brown color */
+            min-height: 200px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        .bubble {
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            background-color: #D3D3D3;
+            border-radius: 20px;
+            cursor: grab;
+            text-align: center;
+            user-select: none;
+        }
+
+        .bubble.dragging {
+            opacity: 0.5;
+        }
+
+        .bubble-placeholder {
+            background-color: #C0C0C0;
+            border: 2px dashed #8B4513;
+            border-radius: 20px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        #search-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #search-results {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #8B4513;
+        }
     </style>
 </head>
 <body>
@@ -183,6 +242,7 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#quotes">Quotes for Inspo</a></li>
+        <li><a href="#find-counselor">Find a Counselor</a></li>
     </ul>
 </nav>
 
@@ -286,6 +346,24 @@
         ― Alan Wilson Watts, The Way of Zen</p>
 </section>
 
+<!-- Find a Counselor Section -->
+<section id="find-counselor" class="find-counselor">
+    <h2>Find a Counselor</h2>
+    <div class="group-container">
+        <div id="group-left" class="bubble-group">
+            <div class="bubble" draggable="true">Relationship Counseling</div>
+            <div class="bubble" draggable="true">Stress Management</div>
+            <div class="bubble" draggable="true">Career Guidance</div>
+            <div class="bubble" draggable="true">Health & Wellness</div>
+        </div>
+        <div id="group-right" class="bubble-group">
+            <!-- Drop target group -->
+        </div>
+    </div>
+    <button id="search-button">Search</button>
+    <div id="search-results"></div>
+</section>
+
 <!-- JavaScript for Smooth Scrolling and Infinite Carousel -->
 <script>
   // Smooth Scrolling
@@ -314,6 +392,54 @@
     // Use transform to move the carousel to the calculated position
     carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
   }
+
+  // Drag and Drop Functionality
+  let draggedElement = null;
+
+  document.querySelectorAll('.bubble').forEach(bubble => {
+    bubble.addEventListener('dragstart', (e) => {
+      draggedElement = e.target;
+      e.target.classList.add('dragging');
+    });
+
+    bubble.addEventListener('dragend', (e) => {
+      e.target.classList.remove('dragging');
+      draggedElement = null;
+    });
+  });
+
+  document.querySelectorAll('.bubble-group').forEach(group => {
+    group.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      const afterElement = getDragAfterElement(group, e.clientY);
+      if (afterElement == null) {
+        group.appendChild(draggedElement);
+      } else {
+        group.insertBefore(draggedElement, afterElement);
+      }
+    });
+  });
+
+  function getDragAfterElement(group, y) {
+    const draggableElements = [...group.querySelectorAll('.bubble:not(.dragging)')];
+
+    return draggableElements.reduce((closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+  }
+
+  document.getElementById('search-button').addEventListener('click', () => {
+    const selectedBubbles = [...document.getElementById('group-right').querySelectorAll('.bubble')];
+    const searchText = selectedBubbles.map(bubble => bubble.textContent).join(', ');
+
+    document.getElementById('search-results').textContent = `You searched for: ${searchText}`;
+  });
 </script>
 </body>
 </html>
