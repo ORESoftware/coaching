@@ -286,6 +286,32 @@
             font-weight: bold;
             color: #8B4513;
         }
+
+        /* Social media icons styling */
+        .social-media-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 2000;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-media-container a {
+            display: block;
+            width: 30px; /* Set default width */
+            height: 30px; /* Set default height */
+        }
+
+        .social-media-container img {
+            width: 100%;
+            height: auto;
+            max-width: 50px; /* Maximum width */
+            max-height: 50px; /* Maximum height */
+            min-width: 20px;  /* Minimum width */
+            min-height: 20px; /* Minimum height */
+            object-fit: contain; /* Ensures the image fits within the dimensions */
+        }
     </style>
 </head>
 <body>
@@ -298,10 +324,10 @@
 <!-- Social Media Icons -->
 <div class="social-media-container">
     <a href="https://www.instagram.com" target="_blank">
-        <img src="imgs/instagram-icon.png" alt="Instagram">
+        <img src="imgs/img_2.png" alt="Instagram">
     </a>
     <a href="https://www.facebook.com" target="_blank">
-        <img src="imgs/facebook-icon.png" alt="Facebook">
+        <img src="imgs/img_1.png" alt="Facebook">
     </a>
 </div>
 
@@ -313,8 +339,8 @@
         <div></div>
     </div>
     <ul id="menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#people">People</a></li>
+        <li><a href="#about">About Dancing Dragons Counseling</a></li>
+        <li><a href="#people">People/Counselors</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#quotes">Quotes for Inspo</a></li>
