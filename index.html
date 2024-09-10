@@ -42,13 +42,18 @@
 
         .social-media-container a {
             display: block;
-            width: 30px;
-            height: 30px;
+            width: 30px; /* Set default width */
+            height: 30px; /* Set default height */
         }
 
         .social-media-container img {
             width: 100%;
             height: auto;
+            max-width: 50px; /* Maximum width */
+            max-height: 50px; /* Maximum height */
+            min-width: 20px;  /* Minimum width */
+            min-height: 20px; /* Minimum height */
+            object-fit: contain; /* Ensures the image fits within the dimensions */
         }
 
         /* Menu styling */
@@ -86,12 +91,17 @@
             cursor: pointer;
         }
 
-        /* Hamburger Menu */
+        /* Updated Hamburger Menu */
         .hamburger {
             display: none;
             cursor: pointer;
             flex-direction: column;
             gap: 5px;
+            position: fixed; /* Fixed position to stay on top */
+            top: 15px; /* Adjusted from the top */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center alignment correction */
+            z-index: 1500; /* Ensure it stays above other elements */
         }
 
         .hamburger div {
@@ -105,6 +115,7 @@
             nav {
                 width: 100%;
                 left: 0;
+                top: 60px; /* Push down to avoid overlapping with the hamburger icon */
             }
 
             nav ul {
@@ -118,6 +129,7 @@
                 padding: 20px;
                 margin: 0;
                 display: none; /* Hidden by default */
+                z-index: 1000; /* Ensure it is below the hamburger icon */
             }
 
             nav ul li {
@@ -286,32 +298,6 @@
             font-weight: bold;
             color: #8B4513;
         }
-
-        /* Social media icons styling */
-        .social-media-container {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 2000;
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-media-container a {
-            display: block;
-            width: 30px; /* Set default width */
-            height: 30px; /* Set default height */
-        }
-
-        .social-media-container img {
-            width: 100%;
-            height: auto;
-            max-width: 50px; /* Maximum width */
-            max-height: 50px; /* Maximum height */
-            min-width: 20px;  /* Minimum width */
-            min-height: 20px; /* Minimum height */
-            object-fit: contain; /* Ensures the image fits within the dimensions */
-        }
     </style>
 </head>
 <body>
@@ -453,10 +439,10 @@
     <h2>Find a Counselor</h2>
     <div class="group-container">
         <div id="group-left" class="bubble-group">
-            <div class="bubble" draggable="true">Relationship Counseling</div>
-            <div class="bubble" draggable="true">Stress Management</div>
-            <div class="bubble" draggable="true">Career Guidance</div>
-            <div class="bubble" draggable="true">Health & Wellness</div>
+            <div class="bubble" draggable="true" touch-action="none">Relationship Counseling</div>
+            <div class="bubble" draggable="true" touch-action="none">Stress Management</div>
+            <div class="bubble" draggable="true" touch-action="none">Career Guidance</div>
+            <div class="bubble" draggable="true" touch-action="none">Health & Wellness</div>
         </div>
         <div id="group-right" class="bubble-group">
             <!-- Drop target group -->
@@ -495,7 +481,7 @@
     carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
   }
 
-  // Drag and Drop Functionality
+  // Drag and Drop Functionality (Touch Support Added)
   let draggedElement = null;
 
   document.querySelectorAll('.bubble').forEach(bubble => {
@@ -509,6 +495,18 @@
       draggedElement = null;
       updateOrderNumbers();
     });
+
+    // Add touch support for mobile
+    bubble.addEventListener('touchstart', (e) => {
+      draggedElement = e.target;
+      e.target.classList.add('dragging');
+    }, { passive: true });
+
+    bubble.addEventListener('touchend', (e) => {
+      e.target.classList.remove('dragging');
+      draggedElement = null;
+      updateOrderNumbers();
+    }, { passive: true });
   });
 
   document.querySelectorAll('.bubble-group').forEach(group => {
@@ -521,6 +519,17 @@
         group.insertBefore(draggedElement, afterElement);
       }
     });
+
+    group.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const afterElement = getDragAfterElement(group, touch.clientY);
+      if (afterElement == null) {
+        group.appendChild(draggedElement);
+      } else {
+        group.insertBefore(draggedElement, afterElement);
+      }
+    }, { passive: false });
   });
 
   function getDragAfterElement(group, y) {
