@@ -279,21 +279,6 @@
             font-size: 14px; /* Default font size */
         }
 
-        /* Animation Effects */
-        .bubble.slide-left {
-            transform: translateX(-100%);
-            opacity: 0;
-        }
-
-        .bubble.slide-right {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-
-        .bubble.moving {
-            box-shadow: 0 0 15px rgba(139, 69, 19, 0.8);
-        }
-
         .bubble-placeholder {
             background-color: #C0C0C0;
             border: 2px dashed #8B4513;
@@ -634,14 +619,20 @@
       const upButton = document.createElement('button');
       upButton.textContent = 'Up';
       upButton.className = 'reorder-button';
-      upButton.onclick = () => moveBubbleUp(bubble);
+      upButton.onclick = (e) => {
+        e.stopPropagation();  // Prevent triggering the toggleBubble function
+        moveBubbleUp(bubble);
+      };
       bubble.appendChild(upButton);
 
       // Down button
       const downButton = document.createElement('button');
       downButton.textContent = 'Down';
       downButton.className = 'reorder-button';
-      downButton.onclick = () => moveBubbleDown(bubble);
+      downButton.onclick = (e) => {
+        e.stopPropagation();  // Prevent triggering the toggleBubble function
+        moveBubbleDown(bubble);
+      };
       bubble.appendChild(downButton);
     }
 
