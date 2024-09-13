@@ -546,6 +546,12 @@
     document.querySelectorAll('.bubble-group').forEach(group => {
       group.addEventListener('dragover', (e) => {
         e.preventDefault();
+        const rightGroup = document.getElementById('group-right');
+        // Prevent more than 5 items in the right group
+        if (group.id === 'group-right' && rightGroup.querySelectorAll('.bubble').length >= 5) {
+          showCustomDialog("Can only have a max of 5 items in the priority box.");
+          return;
+        }
         const afterElement = getDragAfterElement(group, e.clientY);
         const dragging = document.querySelector('.moving');
         if (afterElement == null) {
@@ -557,6 +563,11 @@
 
       group.addEventListener('drop', (e) => {
         e.preventDefault();
+        const rightGroup = document.getElementById('group-right');
+        if (rightGroup.querySelectorAll('.bubble').length > 5) {
+          showCustomDialog("Can only have a max of 5 items in the priority box.");
+          return;
+        }
         updateOrderNumbers();
       });
     });
