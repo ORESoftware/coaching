@@ -269,6 +269,35 @@
             text-align: left;
             user-select: none;
             position: relative;
+            transition: transform 0.6s, box-shadow 0.3s ease, opacity 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        /* Animation Effects */
+        .bubble.slide-left {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .bubble.slide-right {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        .bubble.added {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .bubble.removed {
+            transform: scale(0.9) rotate(-5deg);
+        }
+
+        .bubble.moving {
+            box-shadow: 0 0 15px rgba(139, 69, 19, 0.8);
+        }
+
+        .bubble.flipping {
+            transform: rotateY(180deg);
         }
 
         .bubble-placeholder {
@@ -488,14 +517,29 @@
     const leftGroup = document.getElementById('group-left');
     const rightGroup = document.getElementById('group-right');
 
+    // Remove previous animation classes
+    bubble.classList.remove('slide-left', 'slide-right', 'added', 'removed', 'moving', 'flipping');
+
     if (bubble.getAttribute('data-group') === 'left') {
-      rightGroup.appendChild(bubble);
-      bubble.setAttribute('data-group', 'right');
-      updateBubbleButton(bubble, 'Remove (-)');
+      // Slide to the right with a fade effect
+      bubble.classList.add('slide-right');
+      setTimeout(() => {
+        rightGroup.appendChild(bubble);
+        bubble.setAttribute('data-group', 'right');
+        bubble.classList.remove('slide-right');
+        bubble.classList.add('added');
+        updateBubbleButton(bubble, 'Remove (-)');
+      }, 300); // Delay matches the transition time
     } else {
-      leftGroup.appendChild(bubble);
-      bubble.setAttribute('data-group', 'left');
-      updateBubbleButton(bubble, 'Add (+)');
+      // Slide to the left with a fade effect
+      bubble.classList.add('slide-left');
+      setTimeout(() => {
+        leftGroup.appendChild(bubble);
+        bubble.setAttribute('data-group', 'left');
+        bubble.classList.remove('slide-left');
+        bubble.classList.add('removed');
+        updateBubbleButton(bubble, 'Add (+)');
+      }, 300);
     }
 
     updateOrderNumbers();
