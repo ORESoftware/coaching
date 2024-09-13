@@ -790,21 +790,6 @@
     dialog.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
     dialog.textContent = message;
 
-    const closeButton = document.createElement('button');
-    closeButton.textContent = 'Close';
-    closeButton.style.marginTop = '10px';
-    closeButton.style.padding = '5px 10px';
-    closeButton.style.backgroundColor = '#8B4513';
-    closeButton.style.color = '#fff';
-    closeButton.style.border = 'none';
-    closeButton.style.borderRadius = '5px';
-    closeButton.style.cursor = 'pointer';
-    closeButton.onclick = () => {
-      clearTimeout(autoCloseTimeout); // Clear the auto-close timeout
-      document.body.removeChild(dialog);
-    };
-
-    dialog.appendChild(closeButton);
     document.body.appendChild(dialog);
 
     // Auto-close after 5 seconds if not closed by the user
