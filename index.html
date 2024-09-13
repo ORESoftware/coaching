@@ -428,6 +428,15 @@
                 </div>
             </div>
             <div class="carousel-item">
+                <img src="imgs/dd-kari.png" alt="Person 4">
+                <div class="carousel-footer">
+                    <h3>Kari T.</h3>
+                    <p>Focus on interpersonal dynamics.</p>
+                    <p>Over 14 years as a social worker.</p>
+                    <p>Counselor and Social Work</p>
+                </div>
+            </div>
+            <div class="carousel-item">
                 <img src="imgs/dd-alex.jpeg" alt="Person 4">
                 <div class="carousel-footer">
                     <h3>Alex M.</h3>
@@ -524,8 +533,9 @@
   // Drag and Drop Functionality for Desktop
   if (!isMobile) {
     document.querySelectorAll('.bubble').forEach(bubble => {
+      bubble.setAttribute('draggable', 'true'); // Ensure drag is enabled on desktop
       bubble.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData('text/plain', e.target.textContent);
+        e.dataTransfer.setData('text/plain', e.target.id);
         bubble.classList.add('moving');
       });
 
@@ -538,18 +548,34 @@
     document.querySelectorAll('.bubble-group').forEach(group => {
       group.addEventListener('dragover', (e) => {
         e.preventDefault();
+        const afterElement = getDragAfterElement(group, e.clientY);
+        const dragging = document.querySelector('.moving');
+        if (afterElement == null) {
+          group.appendChild(dragging);
+        } else {
+          group.insertBefore(dragging, afterElement);
+        }
       });
 
       group.addEventListener('drop', (e) => {
         e.preventDefault();
-        const draggedText = e.dataTransfer.getData('text/plain');
-        const draggedBubble = [...document.querySelectorAll('.bubble')].find(bubble => bubble.textContent === draggedText);
-        if (draggedBubble && group !== draggedBubble.parentElement) {
-          group.appendChild(draggedBubble);
-        }
         updateOrderNumbers();
       });
     });
+
+    function getDragAfterElement(group, y) {
+      const draggableElements = [...group.querySelectorAll('.bubble:not(.moving)')];
+
+      return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
+        }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
   } else {
     // Bubble click handling for mobile browsers
     document.querySelectorAll('.bubble').forEach(bubble => {
