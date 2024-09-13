@@ -284,14 +284,6 @@
             opacity: 0;
         }
 
-        .bubble.added {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .bubble.removed {
-            transform: scale(0.9) rotate(-5deg);
-        }
-
         .bubble.moving {
             box-shadow: 0 0 15px rgba(139, 69, 19, 0.8);
         }
@@ -468,10 +460,10 @@
     <h2>Find a Counselor</h2>
     <div class="group-container">
         <div id="group-left" class="bubble-group">
-            <div class="bubble" data-group="left" onclick="toggleBubble(this)">Relationship Counseling</div>
-            <div class="bubble" data-group="left" onclick="toggleBubble(this)">Stress Management</div>
-            <div class="bubble" data-group="left" onclick="toggleBubble(this)">Career Guidance</div>
-            <div class="bubble" data-group="left" onclick="toggleBubble(this)">Health & Wellness</div>
+            <div class="bubble" data-group="left" draggable="true">Relationship Counseling</div>
+            <div class="bubble" data-group="left" draggable="true">Stress Management</div>
+            <div class="bubble" data-group="left" draggable="true">Career Guidance</div>
+            <div class="bubble" data-group="left" draggable="true">Health & Wellness</div>
         </div>
         <div class="center-image">
             <img src="imgs/arrows.png" alt="Counseling Icon" />
@@ -512,53 +504,87 @@
     carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
   }
 
-  // Bubble click handling for mobile browsers
-  function toggleBubble(bubble) {
-    const leftGroup = document.getElementById('group-left');
-    const rightGroup = document.getElementById('group-right');
+  // Check if it's a mobile device
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-    // Remove previous animation classes
-    bubble.classList.remove('slide-left', 'slide-right', 'added', 'removed', 'moving', 'flipping');
+  // Drag and Drop Functionality for Desktop
+  if (!isMobile) {
+    document.querySelectorAll('.bubble').forEach(bubble => {
+      bubble.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', e.target.textContent);
+        bubble.classList.add('moving');
+      });
 
-    if (bubble.getAttribute('data-group') === 'left') {
-      // Slide to the right with a fade effect
-      bubble.classList.add('slide-right');
-      setTimeout(() => {
-        rightGroup.appendChild(bubble);
-        bubble.setAttribute('data-group', 'right');
-        bubble.classList.remove('slide-right');
-        bubble.classList.add('added');
-        updateBubbleButton(bubble, 'Remove (-)');
-      }, 300); // Delay matches the transition time
-    } else {
-      // Slide to the left with a fade effect
-      bubble.classList.add('slide-left');
-      setTimeout(() => {
-        leftGroup.appendChild(bubble);
-        bubble.setAttribute('data-group', 'left');
-        bubble.classList.remove('slide-left');
-        bubble.classList.add('removed');
-        updateBubbleButton(bubble, 'Add (+)');
-      }, 300);
+      bubble.addEventListener('dragend', (e) => {
+        bubble.classList.remove('moving');
+        updateOrderNumbers();
+      });
+    });
+
+    document.querySelectorAll('.bubble-group').forEach(group => {
+      group.addEventListener('dragover', (e) => {
+        e.preventDefault();
+      });
+
+      group.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const draggedText = e.dataTransfer.getData('text/plain');
+        const draggedBubble = [...document.querySelectorAll('.bubble')].find(bubble => bubble.textContent === draggedText);
+        if (draggedBubble && group !== draggedBubble.parentElement) {
+          group.appendChild(draggedBubble);
+        }
+        updateOrderNumbers();
+      });
+    });
+  } else {
+    // Bubble click handling for mobile browsers
+    document.querySelectorAll('.bubble').forEach(bubble => {
+      bubble.setAttribute('onclick', 'toggleBubble(this)');
+    });
+
+    function toggleBubble(bubble) {
+      const leftGroup = document.getElementById('group-left');
+      const rightGroup = document.getElementById('group-right');
+
+      // Remove previous animation classes
+      bubble.classList.remove('slide-left', 'slide-right', 'moving', 'flipping');
+
+      if (bubble.getAttribute('data-group') === 'left') {
+        bubble.classList.add('slide-right');
+        setTimeout(() => {
+          rightGroup.appendChild(bubble);
+          bubble.setAttribute('data-group', 'right');
+          bubble.classList.remove('slide-right');
+          updateBubbleButton(bubble, 'Remove (-)');
+        }, 300);
+      } else {
+        bubble.classList.add('slide-left');
+        setTimeout(() => {
+          leftGroup.appendChild(bubble);
+          bubble.setAttribute('data-group', 'left');
+          bubble.classList.remove('slide-left');
+          updateBubbleButton(bubble, 'Add (+)');
+        }, 300);
+      }
+
+      updateOrderNumbers();
     }
 
-    updateOrderNumbers();
-  }
-
-  function updateBubbleButton(bubble, buttonText) {
-    let button = bubble.querySelector('button');
-    if (!button) {
-      button = document.createElement('button');
-      button.style.marginLeft = '10px';
-      bubble.appendChild(button);
+    function updateBubbleButton(bubble, buttonText) {
+      let button = bubble.querySelector('button');
+      if (!button) {
+        button = document.createElement('button');
+        button.style.marginLeft = '10px';
+        bubble.appendChild(button);
+      }
+      button.textContent = buttonText;
+      button.onclick = () => toggleBubble(bubble);
     }
-    button.textContent = buttonText;
-    button.onclick = () => toggleBubble(bubble);
-  }
 
-  document.querySelectorAll('.bubble').forEach(bubble => {
-    updateBubbleButton(bubble, 'Add (+)');
-  });
+    document.querySelectorAll('.bubble').forEach(bubble => {
+      updateBubbleButton(bubble, 'Add (+)');
+    });
+  }
 
   function updateOrderNumbers() {
     const rightGroup = document.getElementById('group-right');
