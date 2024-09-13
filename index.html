@@ -261,6 +261,7 @@
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
+            position: relative; /* For the empty message */
         }
 
         .bubble {
@@ -307,6 +308,17 @@
             margin-top: 20px;
             font-weight: bold;
             color: #8B4513;
+        }
+
+        /* Text to show when right group is empty */
+        .empty-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #8B4513;
+            font-style: italic;
+            display: none;
         }
 
         /* Buttons for mobile reordering */
@@ -478,6 +490,7 @@
         </div>
         <div id="group-right" class="bubble-group">
             <!-- Drop target group -->
+            <div class="empty-message">(move items into here)</div>
         </div>
     </div>
     <button id="search-button">Search</button>
@@ -571,6 +584,12 @@
       const leftGroup = document.getElementById('group-left');
       const rightGroup = document.getElementById('group-right');
 
+      // Check max limit of 5 bubbles in the right group
+      if (bubble.getAttribute('data-group') === 'left' && rightGroup.childElementCount >= 5) {
+        showCustomDialog("Can only have a max of 5 items in the priority box.");
+        return;
+      }
+
       // Remove previous animation classes
       bubble.classList.remove('slide-left', 'slide-right', 'moving', 'flipping');
 
@@ -581,6 +600,7 @@
           bubble.setAttribute('data-group', 'right');
           bubble.classList.remove('slide-right');
           updateBubbleButton(bubble, 'Remove (-)');
+          checkEmptyMessage();
         }, 300);
       } else {
         bubble.classList.add('slide-left');
@@ -589,6 +609,7 @@
           bubble.setAttribute('data-group', 'left');
           bubble.classList.remove('slide-left');
           updateBubbleButton(bubble, 'Add (+)');
+          checkEmptyMessage();
         }, 300);
       }
 
@@ -681,12 +702,30 @@
         bubble.prepend(orderNumber);
       }
       orderNumber.textContent = bubbleData.order;
+
+      // Disable up/down buttons for first/last bubbles
+      const upButton = bubble.querySelector('button.reorder-button:nth-of-type(1)');
+      const downButton = bubble.querySelector('button.reorder-button:nth-of-type(2)');
+      if (upButton) upButton.style.display = (index === 0) ? 'none' : 'inline-block';
+      if (downButton) downButton.style.display = (index === bubbles.length - 1) ? 'none' : 'inline-block';
     });
 
     const leftGroup = document.getElementById('group-left');
     leftGroup.querySelectorAll('.bubble .order-number').forEach(orderNumber => {
       orderNumber.remove();
     });
+
+    checkEmptyMessage();
+  }
+
+  function checkEmptyMessage() {
+    const rightGroup = document.getElementById('group-right');
+    const emptyMessage = rightGroup.querySelector('.empty-message');
+    if (rightGroup.querySelectorAll('.bubble').length === 0) {
+      emptyMessage.style.display = 'block';
+    } else {
+      emptyMessage.style.display = 'none';
+    }
   }
 
   document.getElementById('search-button').addEventListener('click', () => {
@@ -715,6 +754,38 @@
   function hideMenu() {
     const menu = document.getElementById('menu');
     menu.classList.remove('show-menu');
+  }
+
+  // Function to show a custom dialog
+  function showCustomDialog(message) {
+    const dialog = document.createElement('div');
+    dialog.style.position = 'fixed';
+    dialog.style.top = '50%';
+    dialog.style.left = '50%';
+    dialog.style.transform = 'translate(-50%, -50%)';
+    dialog.style.backgroundColor = '#fff';
+    dialog.style.border = '1px solid #8B4513';
+    dialog.style.padding = '20px';
+    dialog.style.zIndex = '2000';
+    dialog.style.borderRadius = '10px';
+    dialog.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+    dialog.textContent = message;
+
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.style.marginTop = '10px';
+    closeButton.style.padding = '5px 10px';
+    closeButton.style.backgroundColor = '#8B4513';
+    closeButton.style.color = '#fff';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '5px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.onclick = () => {
+      document.body.removeChild(dialog);
+    };
+
+    dialog.appendChild(closeButton);
+    document.body.appendChild(dialog);
   }
 </script>
 </body>
