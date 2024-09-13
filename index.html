@@ -5,8 +5,321 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2D2C - Dancing Dragons Counseling Collective</title>
     <style>
-        /* Existing CSS styles... */
-        /* Ensure styles are as per the provided code */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .center-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 20px;
+        }
+
+        .center-image img {
+            max-width: 100px;
+            max-height: 100px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .header-image-container {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1500;
+        }
+
+        .header-image {
+            width: 80px;
+            transition: width 0.3s, height 0.3s;
+            cursor: pointer;
+        }
+
+        .header-image:hover {
+            width: 200px;
+        }
+
+        .social-media-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 2000;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-media-container a {
+            display: block;
+            width: 30px;
+            height: 30px;
+        }
+
+        .social-media-container img {
+            width: 100%;
+            height: auto;
+            max-width: 50px;
+            max-height: 50px;
+            min-width: 20px;
+            min-height: 20px;
+            object-fit: contain;
+        }
+
+        nav {
+            background-color: #8B4513;
+            color: #fff;
+            padding: 15px;
+            position: fixed;
+            width: calc(100% - 20px);
+            top: 0;
+            z-index: 1000;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1500;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                left: 0;
+                top: 60px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                background-color: #8B4513;
+                width: 100%;
+                padding: 20px;
+                margin: 0;
+                display: none;
+                z-index: 1000;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .bubble {
+                font-size: 12px; /* Smaller font size on mobile */
+                flex-wrap: wrap; /* Ensure content fits within mobile width */
+            }
+        }
+
+        .show-menu {
+            display: flex !important;
+        }
+
+        section {
+            padding: 100px 20px;
+            margin-top: 60px;
+            background-color: #C0C0C0;
+        }
+
+        #about { background-color: #C0C0C0; }
+        #people { background-color: #D3D3D3; }
+        #contact { background-color: #E0E0E0; }
+        #testimonials { background-color: #F0F0F0; }
+
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px 0;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 20px;
+        }
+
+        .carousel-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .carousel img {
+            height: 200px;
+            max-height: 1000px;
+            width: auto;
+            transition: height 0.3s;
+            cursor: pointer;
+        }
+
+        .carousel img:hover {
+            height: 300px;
+        }
+
+        .carousel-footer {
+            margin-top: 10px;
+        }
+
+        .carousel-footer h3 {
+            margin: 10px 0 5px 0;
+            font-size: 18px;
+            color: #8B4513;
+        }
+
+        .carousel-footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .carousel-button {
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .carousel-button.left {
+            left: 10px;
+        }
+
+        .carousel-button.right {
+            right: 10px;
+        }
+
+        .find-counselor {
+            padding: 50px 20px;
+            background-color: #E6E6FA;
+        }
+
+        .group-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .bubble-group {
+            width: 45%;
+            border: 2px dashed #8B4513;
+            min-height: 200px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        .bubble {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            background-color: #D3D3D3;
+            border-radius: 20px;
+            cursor: pointer;
+            text-align: left;
+            user-select: none;
+            position: relative;
+            transition: transform 0.6s, box-shadow 0.3s ease, opacity 0.3s ease;
+            transform-style: preserve-3d;
+            font-size: 14px; /* Default font size */
+        }
+
+        .bubble-placeholder {
+            background-color: #C0C0C0;
+            border: 2px dashed #8B4513;
+            border-radius: 20px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .bubble .order-number {
+            font-weight: bold;
+            color: #8B4513;
+            margin-right: 10px;
+        }
+
+        #search-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #search-results {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        /* Buttons for mobile reordering */
+        .reorder-button {
+            margin-left: 5px;
+            padding: 5px 10px;
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
@@ -43,8 +356,112 @@
     </ul>
 </nav>
 
-<!-- Sections (About, People, Contact, etc.) -->
-<!-- Existing HTML sections... -->
+<!-- Sections -->
+<section id="about">
+    <h2>About Dancing Dragons Counseling</h2>
+    <p>You may have found us via Instagram!</p>
+    <p>We are an affordable alternative to "therapy" - we practice practical coaching and counseling, internationally. </p>
+    <p>Masculine and feminine coaching + counseling.</p>
+    <p>Adaptive styles focused on solutions; with goal-setting and behavioral changes, mindset changes.</p>
+    <p>International (geographically unbounded) - English only for now.</p>
+    <p>Conservative and practical coaching for those ages 15+</p>
+    <p>Holistic, compassionate, and future-focused. Philosophically-grounded but practical.</p>
+    <p>Discuss issues surrounding:</p>
+    <ul>
+        <li>Relationships</li>
+        <li>Stressors</li>
+        <li>Basic money/business/finance</li>
+        <li>Children/parents</li>
+        <li>Goals, education, career</li>
+        <li>Drugs, addictions, habits</li>
+        <li>Health + Wellness + Fitness</li>
+        <li>Sexual Identity, dating</li>
+        <li>Solutions</li>
+    </ul>
+</section>
+
+<section id="people">
+    <h2>People</h2>
+    <div class="carousel-container">
+        <button class="carousel-button left" onclick="scrollCarousel(-1)">&#8249;</button>
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="imgs/dd-cory.jpg" alt="Person 1">
+                <div class="carousel-footer">
+                    <h3>Cory D.</h3>
+                    <p>Expert in relationship coaching.</p>
+                    <p>5 years of experience.</p>
+                    <p>Coach/Counselor.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/dd-djw.jpg" alt="Person 2">
+                <div class="carousel-footer">
+                    <h3>David J.</h3>
+                    <p>Specializes in stress management.</p>
+                    <p>Author of two self-help books.</p>
+                    <p>International Speaker.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/dd-ted.jpg" alt="Person 3">
+                <div class="carousel-footer">
+                    <h3>Ted S.</h3>
+                    <p>Focus on career guidance.</p>
+                    <p>Over 15 years in executive/leadership coaching.</p>
+                    <p>Executive.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/dd-kari.png" alt="Person 4">
+                <div class="carousel-footer">
+                    <h3>Kari T.</h3>
+                    <p>Focus on interpersonal dynamics.</p>
+                    <p>Over 14 years as a social worker.</p>
+                    <p>Counselor and Social Work</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/dd-alex.jpeg" alt="Person 5">
+                <div class="carousel-footer">
+                    <h3>Alex M.</h3>
+                    <p>Focus on career guidance.</p>
+                    <p>Over 10 years in coaching.</p>
+                    <p>CEO/Executive.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-button right" onclick="scrollCarousel(1)">&#8250;</button>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Please reach out for more information on our services.</p>
+    <p>Email: example@example.com</p>
+    <p>Phone: +1-234-567-8900</p>
+</section>
+
+<section id="testimonials">
+    <h2>Testimonials</h2>
+    <p>"This service has been transformative for me. The coaching provided a practical, grounded approach to my challenges." - Client A</p>
+    <p>"Highly recommend for anyone seeking clarity and practical guidance in their life." - Client B</p>
+</section>
+
+<section id="quotes">
+    <h2>Quotes</h2>
+    <p>Avoid ascribing to malice or ignorance what can safely be ascribed to financial poverty.</p>
+    <p>Plans are nothing; planning is everything - Eisenhower</p>
+    <p>Life is like riding a bicycle - to stay upright you have to keep moving. - Einstein</p>
+    <p>"We have it within our power to begin the world again." - Thomas Paine</p>
+    <p>A civilization rarely outlives its gods - Shaw</p>
+    <p>“Problems that remain persistently insoluble should always be suspected as questions asked in the wrong way.” - Alan Watts</p>
+    <p>“Things are as they are. Looking out into the universe at night, we make no comparisons between right and wrong stars, nor between well and badly arranged constellations.”</p>
+    <p>We do not "come into" this world; we come out of it, as leaves from a tree. As the ocean "waves," the universe "peoples." Every individual is an expression of the whole realm of nature, a unique action of the total universe.”</p>
+    <p>"The only man who behaves sensibly is my tailor/(and coach!); he takes my measurements anew every time he sees me, while all the rest go on with their old measurements and expect them to fit me." - GBS </p>
+    <p>When we attempt to exercise power or control over someone else, we cannot avoid giving that person the very same power or control over us.”
+        ― Alan Wilson Watts, The Way of Zen</p>
+</section>
 
 <!-- Find a Counselor Section -->
 <section id="find-counselor" class="find-counselor">
