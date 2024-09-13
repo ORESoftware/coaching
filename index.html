@@ -548,6 +548,13 @@
         e.preventDefault();
         const afterElement = getDragAfterElement(group, e.clientY);
         const dragging = document.querySelector('.moving');
+
+        const rightGroup = document.getElementById('group-right');
+        if (group === rightGroup && rightGroup.querySelectorAll('.bubble').length >= 5) {
+          showCustomDialog("Can only have a max of 5 items in the priority box.");
+          return;
+        }
+
         if (afterElement == null) {
           group.appendChild(dragging);
         } else {
