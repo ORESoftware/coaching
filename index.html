@@ -565,6 +565,7 @@
       group.addEventListener('drop', (e) => {
         e.preventDefault();
         updateOrderNumbers();
+        updateReorderButtons();  // Ensure reorder buttons are updated after drop
       });
     });
 
@@ -608,6 +609,7 @@
           bubble.classList.remove('slide-right');
           updateBubbleButton(bubble, 'Remove (-)');
           checkEmptyMessage();
+          updateReorderButtons();  // Ensure reorder buttons are updated after add/remove
         }, 300);
       } else {
         bubble.classList.add('slide-left');
@@ -617,6 +619,7 @@
           bubble.classList.remove('slide-left');
           updateBubbleButton(bubble, 'Add (+)');
           checkEmptyMessage();
+          updateReorderButtons();  // Ensure reorder buttons are updated after add/remove
         }, 300);
       }
 
@@ -675,6 +678,7 @@
       if (previousBubble && previousBubble.classList.contains('bubble')) {
         rightGroup.insertBefore(bubble, previousBubble);
         updateOrderNumbers();
+        updateReorderButtons();  // Ensure reorder buttons are updated after move
       }
     }
 
@@ -684,6 +688,7 @@
       if (nextBubble && nextBubble.classList.contains('bubble')) {
         rightGroup.insertBefore(nextBubble, bubble);
         updateOrderNumbers();
+        updateReorderButtons();  // Ensure reorder buttons are updated after move
       }
     }
 
@@ -709,12 +714,6 @@
         bubble.prepend(orderNumber);
       }
       orderNumber.textContent = bubbleData.order;
-
-      // Disable up/down buttons for first/last bubbles
-      const upButton = bubble.querySelector('button.reorder-button:nth-of-type(1)');
-      const downButton = bubble.querySelector('button.reorder-button:nth-of-type(2)');
-      if (upButton) upButton.style.display = (index === 0) ? 'none' : 'inline-block';
-      if (downButton) downButton.style.display = (index === bubbles.length - 1) ? 'none' : 'inline-block';
     });
 
     const leftGroup = document.getElementById('group-left');
@@ -723,6 +722,19 @@
     });
 
     checkEmptyMessage();
+  }
+
+  function updateReorderButtons() {
+    const rightGroup = document.getElementById('group-right');
+    const bubbles = [...rightGroup.querySelectorAll('.bubble')];
+
+    bubbles.forEach((bubble, index) => {
+      const upButton = bubble.querySelector('button.reorder-button:nth-of-type(1)');
+      const downButton = bubble.querySelector('button.reorder-button:nth-of-type(2)');
+
+      if (upButton) upButton.style.display = (index === 0) ? 'none' : 'inline-block';
+      if (downButton) downButton.style.display = (index === bubbles.length - 1) ? 'none' : 'inline-block';
+    });
   }
 
   function checkEmptyMessage() {
