@@ -550,7 +550,7 @@
         const dragging = document.querySelector('.moving');
 
         const rightGroup = document.getElementById('group-right');
-        if (group === rightGroup && rightGroup.querySelectorAll('.bubble').length >= 5) {
+        if (group === rightGroup && rightGroup.querySelectorAll('.bubble').length >= 2) {
           showCustomDialog("Can only have a max of 5 items in the priority box.");
           return;
         }
@@ -593,7 +593,7 @@
       const rightGroup = document.getElementById('group-right');
 
       // Check max limit of 5 bubbles in the right group
-      if (bubble.getAttribute('data-group') === 'left' && rightGroup.querySelectorAll('.bubble').length >= 5) {
+      if (bubble.getAttribute('data-group') === 'left' && rightGroup.querySelectorAll('.bubble').length >= 2) {
         showCustomDialog("Can only have a max of 5 items in the priority box.");
         return;
       }
@@ -797,7 +797,7 @@
       if (document.body.contains(dialog)) {
         document.body.removeChild(dialog);
       }
-    }, 5000);
+    }, 3000);
   }
 </script>
 </body>
