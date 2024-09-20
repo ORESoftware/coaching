@@ -171,76 +171,54 @@
         #contact { background-color: #E0E0E0; }
         #testimonials { background-color: #F0F0F0; }
 
-        .carousel-container {
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-            max-width: 100%;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px 0;
-        }
-
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease;
+        /* Vertically Scrollable Container for Counselors */
+        .scroll-container {
+            max-height: 600px;
+            overflow-y: auto;
+            display: grid;
             gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 20px;
         }
 
-        .carousel-item {
+        .scroll-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            min-width: 200px;
         }
 
-        .carousel img {
+        .scroll-item img {
             height: 200px;
-            max-height: 1000px;
             width: auto;
             transition: height 0.3s;
             cursor: pointer;
         }
 
-        .carousel img:hover {
+        .scroll-item img:hover {
             height: 300px;
         }
 
-        .carousel-footer {
+        .scroll-footer {
             margin-top: 10px;
         }
 
-        .carousel-footer h3 {
+        .scroll-footer h3 {
             margin: 10px 0 5px 0;
             font-size: 18px;
             color: #8B4513;
         }
 
-        .carousel-footer p {
+        .scroll-footer p {
             margin: 5px 0;
             font-size: 14px;
         }
 
-        .carousel-button {
-            background-color: #8B4513;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 10;
-        }
-
-        .carousel-button.left {
-            left: 10px;
-        }
-
-        .carousel-button.right {
-            right: 10px;
+        /* Mobile Viewport Adjustments */
+        @media (max-width: 768px) {
+            .scroll-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .find-counselor {
@@ -394,56 +372,54 @@
 
 <section id="people">
     <h2>People</h2>
-    <div class="carousel-container">
-        <button class="carousel-button left" onclick="scrollCarousel(-1)">&#8249;</button>
-        <div class="carousel">
-            <div class="carousel-item">
-                <img src="imgs/dd-cory.jpg" alt="Person 1">
-                <div class="carousel-footer">
-                    <h3>Cory D.</h3>
-                    <p>Expert in relationship coaching.</p>
-                    <p>5 years of experience.</p>
-                    <p>Coach/Counselor.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="imgs/dd-djw.jpg" alt="Person 2">
-                <div class="carousel-footer">
-                    <h3>David J.</h3>
-                    <p>Specializes in stress management.</p>
-                    <p>Author of two self-help books.</p>
-                    <p>International Speaker.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="imgs/dd-ted.jpg" alt="Person 3">
-                <div class="carousel-footer">
-                    <h3>Ted S.</h3>
-                    <p>Focus on career guidance.</p>
-                    <p>Over 15 years in executive/leadership coaching.</p>
-                    <p>Executive.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="imgs/dd-kari.png" alt="Person 4">
-                <div class="carousel-footer">
-                    <h3>Kari T.</h3>
-                    <p>Focus on interpersonal dynamics.</p>
-                    <p>Over 14 years as a social worker.</p>
-                    <p>Counselor and Social Work</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="imgs/dd-alex.jpeg" alt="Person 5">
-                <div class="carousel-footer">
-                    <h3>Alex M.</h3>
-                    <p>Focus on career guidance.</p>
-                    <p>Over 10 years in coaching.</p>
-                    <p>CEO/Executive.</p>
-                </div>
+
+    <!-- Vertically Scrollable Container -->
+    <div class="scroll-container">
+        <div class="scroll-item">
+            <img src="imgs/dd-cory.jpg" alt="Cory D.">
+            <div class="scroll-footer">
+                <h3>Cory D.</h3>
+                <p>Expert in relationship coaching.</p>
+                <p>5 years of experience.</p>
+                <p>Coach/Counselor.</p>
             </div>
         </div>
-        <button class="carousel-button right" onclick="scrollCarousel(1)">&#8250;</button>
+        <div class="scroll-item">
+            <img src="imgs/dd-djw.jpg" alt="David J.">
+            <div class="scroll-footer">
+                <h3>David J.</h3>
+                <p>Specializes in stress management.</p>
+                <p>Author of two self-help books.</p>
+                <p>International Speaker.</p>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <img src="imgs/dd-ted.jpg" alt="Ted S.">
+            <div class="scroll-footer">
+                <h3>Ted S.</h3>
+                <p>Focus on career guidance.</p>
+                <p>Over 15 years in executive/leadership coaching.</p>
+                <p>Executive.</p>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <img src="imgs/dd-kari.png" alt="Kari T.">
+            <div class="scroll-footer">
+                <h3>Kari T.</h3>
+                <p>Focus on interpersonal dynamics.</p>
+                <p>Over 14 years as a social worker.</p>
+                <p>Counselor and Social Work</p>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <img src="imgs/dd-alex.jpeg" alt="Alex M.">
+            <div class="scroll-footer">
+                <h3>Alex M.</h3>
+                <p>Focus on career guidance.</p>
+                <p>Over 10 years in coaching.</p>
+                <p>CEO/Executive.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -470,9 +446,7 @@
     <p>“Problems that remain persistently insoluble should always be suspected as questions asked in the wrong way.” - Alan Watts</p>
     <p>“Things are as they are. Looking out into the universe at night, we make no comparisons between right and wrong stars, nor between well and badly arranged constellations.”</p>
     <p>We do not "come into" this world; we come out of it, as leaves from a tree. As the ocean "waves," the universe "peoples." Every individual is an expression of the whole realm of nature, a unique action of the total universe.”</p>
-    <p>"The only man who behaves sensibly is my tailor/(and coach!); he takes my measurements anew every time he sees me, while all the rest go on with their old measurements and expect them to fit me." - GBS </p>
-    <p>When we attempt to exercise power or control over someone else, we cannot avoid giving that person the very same power or control over us.”
-        ― Alan Wilson Watts, The Way of Zen</p>
+    <p>"The only man who behaves sensibly is my tailor/(and coach!); he takes my measurements anew every time he sees me, while all the rest go on with their old measurements and expect them to fit me." - GBS</p>
 </section>
 
 <!-- Find a Counselor Section -->
@@ -497,7 +471,7 @@
     <div id="search-results"></div>
 </section>
 
-<!-- JavaScript for Smooth Scrolling, Infinite Carousel, and Hamburger Menu -->
+<!-- JavaScript for Smooth Scrolling, Infinite Carousel, Drag-and-Drop, and Hamburger Menu -->
 <script>
   // Smooth Scrolling
   document.querySelectorAll('nav ul li a').forEach(anchor => {
@@ -511,24 +485,9 @@
     });
   });
 
-  // Infinite Carousel Scrolling Logic
-  let currentIndex = 0;
-
-  function scrollCarousel(direction) {
-    const carousel = document.querySelector('.carousel');
-    const items = carousel.querySelectorAll('.carousel-item');
-    const itemWidth = items[0].clientWidth + 20;
-    const totalItems = items.length;
-
-    currentIndex = (currentIndex + direction + totalItems) % totalItems;
-
-    carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-  }
-
-  // Check if it's a mobile device
+  // Drag and Drop Functionality for Desktop
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-  // Drag and Drop Functionality for Desktop
   if (!isMobile) {
     document.querySelectorAll('.bubble').forEach(bubble => {
       bubble.setAttribute('draggable', 'true'); // Ensure drag is enabled on desktop
@@ -550,7 +509,7 @@
         const dragging = document.querySelector('.moving');
 
         const rightGroup = document.getElementById('group-right');
-        if (group === rightGroup && rightGroup.querySelectorAll('.bubble').length >= 2) {
+        if (group === rightGroup && rightGroup.querySelectorAll('.bubble').length >= 5) {
           showCustomDialog("Can only have a max of 5 items in the priority box.");
           return;
         }
@@ -593,7 +552,7 @@
       const rightGroup = document.getElementById('group-right');
 
       // Check max limit of 5 bubbles in the right group
-      if (bubble.getAttribute('data-group') === 'left' && rightGroup.querySelectorAll('.bubble').length >= 2) {
+      if (bubble.getAttribute('data-group') === 'left' && rightGroup.querySelectorAll('.bubble').length >= 5) {
         showCustomDialog("Can only have a max of 5 items in the priority box.");
         return;
       }
@@ -770,7 +729,6 @@
     menu.classList.toggle('show-menu');
   }
 
-  // fix this
   function hideMenu() {
     const menu = document.getElementById('menu');
     menu.classList.remove('show-menu');
