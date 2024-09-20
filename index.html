@@ -253,7 +253,7 @@
             text-align: left;
             user-select: none;
             position: relative;
-            transition: transform 0.6s, box-shadow 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.6s, box-shadow 0.3s ease, opacity 0.3s ease, background-color 0.6s ease, color 2s ease;
             transform-style: preserve-3d;
             font-size: 14px; /* Default font size */
         }
@@ -270,6 +270,19 @@
             font-weight: bold;
             color: #8B4513;
             margin-right: 10px;
+        }
+
+        .highlight {
+            color: #00f; /* Bright blue text for highlight */
+        }
+
+        #search-input {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border: 2px solid #8B4513;
+            border-radius: 5px;
         }
 
         #search-button {
@@ -370,12 +383,13 @@
     </ul>
 </section>
 
+<!-- Search Bar -->
 <section id="people">
     <h2>People</h2>
-
+    <input type="text" id="search-input" placeholder="Search counselors by name, specialty..." oninput="filterPeople()">
     <!-- Vertically Scrollable Container -->
-    <div class="scroll-container">
-        <div class="scroll-item">
+    <div class="scroll-container" id="people-container">
+        <div class="scroll-item" data-name="Cory D." data-specialty="relationship coaching">
             <img src="imgs/dd-cory.jpg" alt="Cory D.">
             <div class="scroll-footer">
                 <h3>Cory D.</h3>
@@ -384,7 +398,7 @@
                 <p>Coach/Counselor.</p>
             </div>
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item" data-name="David J." data-specialty="stress management">
             <img src="imgs/dd-djw.jpg" alt="David J.">
             <div class="scroll-footer">
                 <h3>David J.</h3>
@@ -393,7 +407,7 @@
                 <p>International Speaker.</p>
             </div>
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item" data-name="Ted S." data-specialty="career guidance">
             <img src="imgs/dd-ted.jpg" alt="Ted S.">
             <div class="scroll-footer">
                 <h3>Ted S.</h3>
@@ -402,7 +416,7 @@
                 <p>Executive.</p>
             </div>
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item" data-name="Kari T." data-specialty="interpersonal dynamics">
             <img src="imgs/dd-kari.png" alt="Kari T.">
             <div class="scroll-footer">
                 <h3>Kari T.</h3>
@@ -411,7 +425,7 @@
                 <p>Counselor and Social Work</p>
             </div>
         </div>
-        <div class="scroll-item">
+        <div class="scroll-item" data-name="Alex M." data-specialty="career guidance">
             <img src="imgs/dd-alex.jpeg" alt="Alex M.">
             <div class="scroll-footer">
                 <h3>Alex M.</h3>
@@ -454,10 +468,53 @@
     <h2>Find a Counselor</h2>
     <div class="group-container">
         <div id="group-left" class="bubble-group">
-            <div class="bubble" data-group="left" draggable="true" data-name="Relationship Counseling">Relationship Counseling</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Male Counselor">Man/Male Counselor</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Female Counselor">Woman/Female Counselor</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Relationship Counseling">Relationships</div>
             <div class="bubble" data-group="left" draggable="true" data-name="Stress Management">Stress Management</div>
             <div class="bubble" data-group="left" draggable="true" data-name="Career Guidance">Career Guidance</div>
             <div class="bubble" data-group="left" draggable="true" data-name="Health & Wellness">Health & Wellness</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Anxiety Counseling">Anxiety</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Depression Counseling">Depression</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Trauma Counseling">Trauma</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Grief Counseling">Grief & Loss</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Family Counseling">Family Therapy</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Parenting Support">Parenting Support</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Self-Esteem Counseling">Self-Esteem</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Anger Management">Anger Management</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Substance Abuse Counseling">Substance Abuse</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="PTSD Counseling">PTSD</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Identity Counseling">Identity Issues</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Body Image Counseling">Body Image</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Life Transitions Counseling">Life Transitions</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="LGBTQIA+ Support">LGBTQIA+ Support</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Eating Disorders Counseling">Eating Disorders</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Addiction Counseling">Addiction</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Mindfulness Therapy">Mindfulness</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Sleep Issues Counseling">Sleep Issues</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Couples Counseling">Couples Therapy</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Chronic Pain Management">Chronic Pain</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Social Skills Training">Social Skills Training</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Conflict Resolution">Conflict Resolution</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Assertiveness Training">Assertiveness Training</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Guilt & Shame Counseling">Guilt & Shame Counseling</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Sexual Health Counseling">Sexual Health Counseling</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="ADHD/ADD Support">ADHD/ADD Support</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Autism Spectrum Counseling">Autism Spectrum Counseling</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Performance Anxiety Counseling">Performance Anxiety Counseling</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Spiritual Counseling">Spiritual Counseling</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Divorce & Separation Counseling">Divorce & Separation Counseling</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Executive Coaching">Executive Coaching</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Leadership Development">Leadership Development</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Time Management Coaching">Time Management Coaching</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Public Speaking & Presentation Skills">Public Speaking & Presentation Skills</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Conflict Resolution in the Workplace">Conflict Resolution in the Workplace</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Work-Life Balance Coaching">Work-Life Balance Coaching</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Career Advancement Strategies">Career Advancement Strategies</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Professional Mentorship">Professional Mentorship</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Team Building & Collaboration">Team Building & Collaboration</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Organizational Change Management">Organizational Change Management</div>
+
         </div>
         <div class="center-image">
             <img src="imgs/arrows.png" alt="Counseling Icon" />
@@ -485,6 +542,23 @@
     });
   });
 
+  // Filter people based on search input
+  function filterPeople() {
+    const searchInput = document.getElementById('search-input').value.toLowerCase();
+    const people = document.querySelectorAll('.scroll-item');
+
+    people.forEach(person => {
+      const name = person.getAttribute('data-name').toLowerCase();
+      const specialty = person.getAttribute('data-specialty').toLowerCase();
+
+      if (name.includes(searchInput) || specialty.includes(searchInput)) {
+        person.style.display = '';
+      } else {
+        person.style.display = 'none';
+      }
+    });
+  }
+
   // Drag and Drop Functionality for Desktop
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
@@ -507,12 +581,6 @@
         e.preventDefault();
         const afterElement = getDragAfterElement(group, e.clientY);
         const dragging = document.querySelector('.moving');
-
-        const rightGroup = document.getElementById('group-right');
-        if (group === rightGroup && rightGroup.querySelectorAll('.bubble').length >= 5) {
-          showCustomDialog("Can only have a max of 5 items in the priority box.");
-          return;
-        }
 
         if (afterElement == null) {
           group.appendChild(dragging);
@@ -550,12 +618,6 @@
     function toggleBubble(bubble) {
       const leftGroup = document.getElementById('group-left');
       const rightGroup = document.getElementById('group-right');
-
-      // Check max limit of 5 bubbles in the right group
-      if (bubble.getAttribute('data-group') === 'left' && rightGroup.querySelectorAll('.bubble').length >= 5) {
-        showCustomDialog("Can only have a max of 5 items in the priority box.");
-        return;
-      }
 
       // Remove previous animation classes
       bubble.classList.remove('slide-left', 'slide-right', 'moving', 'flipping');
@@ -673,6 +735,12 @@
         bubble.prepend(orderNumber);
       }
       orderNumber.textContent = bubbleData.order;
+
+      // Change text color to bright blue and fade back to default
+      bubble.classList.add('highlight');
+      setTimeout(() => {
+        bubble.classList.remove('highlight');
+      }, 2000); // Slow fade after 2 seconds
     });
 
     const leftGroup = document.getElementById('group-left');
