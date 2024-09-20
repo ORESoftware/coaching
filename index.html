@@ -310,6 +310,25 @@
             cursor: pointer;
             font-size: 12px;
         }
+
+        /* Search bar styling */
+        #searchInput {
+            margin: 20px;
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+            border: 1px solid #8B4513;
+            border-radius: 5px;
+        }
+
+        #resetButton {
+            padding: 10px 20px;
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -373,8 +392,12 @@
 <section id="people">
     <h2>People</h2>
 
+    <!-- Search bar and Reset button -->
+    <input type="text" id="searchInput" placeholder="Search..." oninput="filterPeople()">
+    <button id="resetButton" onclick="resetSearch()">Reset</button>
+
     <!-- Vertically Scrollable Container -->
-    <div class="scroll-container">
+    <div class="scroll-container" id="peopleContainer">
         <div class="scroll-item">
             <img src="imgs/dd-cory.jpg" alt="Cory D.">
             <div class="scroll-footer">
@@ -484,6 +507,24 @@
       });
     });
   });
+
+  // Search functionality to filter people by footer text
+  function filterPeople() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const people = document.querySelectorAll('.scroll-item');
+
+    people.forEach(person => {
+      const footerText = person.querySelector('.scroll-footer').textContent.toLowerCase();
+      const matches = searchTerm.split(' ').some(term => footerText.includes(term));
+      person.style.display = matches ? 'block' : 'none';
+    });
+  }
+
+  // Reset search and display all people
+  function resetSearch() {
+    document.getElementById('searchInput').value = '';
+    filterPeople();
+  }
 
   // Drag and Drop Functionality for Desktop
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
