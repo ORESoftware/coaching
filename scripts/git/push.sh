@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 set -eo pipefail
+
+ssh-add -D
+ssh-add ~/.ssh/id_ed25519
+
 git add -A || {
   echo 'Could not add files. Something is off. Exiting.';
   exit 1;
