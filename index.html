@@ -230,16 +230,17 @@
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
+            height: 50vh; /* Make the left and right boxes scrollable with max height of half the screen height */
         }
 
         .bubble-group {
             width: 45%;
             border: 2px dashed #8B4513;
-            min-height: 200px;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
-            position: relative; /* For the empty message */
+            position: relative;
+            overflow-y: auto; /* Make the left and right boxes scrollable */
         }
 
         .bubble {
@@ -280,6 +281,7 @@
             margin-bottom: 20px;
             padding: 10px;
             width: 100%;
+            max-width: 50%; /* Limit the width to half the screen width */
             font-size: 16px;
             border: 2px solid #8B4513;
             border-radius: 5px;
@@ -514,13 +516,26 @@
             <div class="bubble" data-group="left" draggable="true" data-name="Professional Mentorship">Professional Mentorship</div>
             <div class="bubble" data-group="left" draggable="true" data-name="Team Building & Collaboration">Team Building & Collaboration</div>
             <div class="bubble" data-group="left" draggable="true" data-name="Organizational Change Management">Organizational Change Management</div>
-
+            <div class="bubble" data-group="left" draggable="true" data-name="Fear of Flying Coaching">Fear of Flying Coaching</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Phobia Desensitization">Phobia Desensitization</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Confidence Coaching">Confidence Coaching</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Resilience Training">Resilience Training</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Fitness Accountability Coaching">Fitness Accountability Coaching</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Motivation & Habit Formation">Motivation & Habit Formation</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Peak Performance Coaching">Peak Performance Coaching</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Fear of Public Speaking">Fear of Public Speaking</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Stress Reduction Techniques">Stress Reduction Techniques</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Healthy Aging & Longevity Coaching">Healthy Aging & Longevity Coaching</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Weight Loss & Body Transformation Coaching">Weight Loss & Body Transformation Coaching</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Overcoming Social Anxiety">Overcoming Social Anxiety</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Leadership Resilience and Crisis Management">Leadership Resilience and Crisis Management</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Decision-Making & Problem-Solving Skills">Decision-Making & Problem-Solving Skills</div>
+            <div class="bubble" data-group="left" draggable="true" data-name="Entrepreneurial Mindset Coaching">Entrepreneurial Mindset Coaching</div>
         </div>
         <div class="center-image">
             <img src="imgs/arrows.png" alt="Counseling Icon" />
         </div>
         <div id="group-right" class="bubble-group">
-            <!-- Drop target group -->
             <div class="empty-message">(move items into here)</div>
         </div>
     </div>
