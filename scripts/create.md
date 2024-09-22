@@ -6,7 +6,7 @@ Create you generate sample json data, given these users/counselors:
     <!-- Vertically Scrollable Container -->
     <div class="scroll-container" id="people-container">
         <div class="scroll-item" data-name="Cory D." data-specialty="relationship coaching">
-            <img src="imgs/dd-cory.jpg" alt="Cory D.">
+            <img src="imgs/dd-coryd.jpg" alt="Cory D.">
             <div class="scroll-footer">
                 <h3>Cory D.</h3>
                 <p>Expert in relationship coaching.</p>
@@ -15,7 +15,7 @@ Create you generate sample json data, given these users/counselors:
             </div>
         </div>
         <div class="scroll-item" data-name="David J." data-specialty="stress management">
-            <img src="imgs/dd-djw.jpg" alt="David J.">
+            <img src="imgs/dd-davidj.jpg" alt="David J.">
             <div class="scroll-footer">
                 <h3>David J.</h3>
                 <p>Specializes in stress management.</p>
@@ -24,7 +24,7 @@ Create you generate sample json data, given these users/counselors:
             </div>
         </div>
         <div class="scroll-item" data-name="Ted S." data-specialty="career guidance">
-            <img src="imgs/dd-ted.jpg" alt="Ted S.">
+            <img src="imgs/dd-teds.jpg" alt="Ted S.">
             <div class="scroll-footer">
                 <h3>Ted S.</h3>
                 <p>Focus on career guidance.</p>
@@ -33,7 +33,7 @@ Create you generate sample json data, given these users/counselors:
             </div>
         </div>
         <div class="scroll-item" data-name="Kari T." data-specialty="interpersonal dynamics">
-            <img src="imgs/dd-kari.png" alt="Kari T.">
+            <img src="imgs/dd-karit.jpg" alt="Kari T.">
             <div class="scroll-footer">
                 <h3>Kari T.</h3>
                 <p>Focus on interpersonal dynamics.</p>
@@ -42,7 +42,7 @@ Create you generate sample json data, given these users/counselors:
             </div>
         </div>
         <div class="scroll-item" data-name="Alex M." data-specialty="career guidance">
-            <img src="imgs/dd-alex.jpeg" alt="Alex M.">
+            <img src="imgs/dd-alexm.jpg" alt="Alex M.">
             <div class="scroll-footer">
                 <h3>Alex M.</h3>
                 <p>Focus on career guidance.</p>
