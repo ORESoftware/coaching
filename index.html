@@ -327,6 +327,36 @@
         }
     </style>
 </head>
+
+<script>
+  // Global variable to store the fetched JSON data
+  window.ourCoaches = Promise.resolve([]);
+
+  // Function to load the JSON file and return the data
+  async function loadJson() {
+    try {
+      const response = await fetch('./assets/skills-responses.v1.json');  // Fetch the JSON file
+      const jsonData = await response.json();     // Parse it as JavaScript object
+      return jsonData;                            // Return the JSON data
+    } catch (error) {
+      console.error('Error loading the JSON file:', error);
+      return [];  // Return an empty array in case of error
+    }
+  }
+
+  // Assign the returned promise to the global variable
+  window.onload = function() {
+    window.ourCoaches = loadJson();  // Assign the promise from loadJson
+    // Log to see if the promise has been assigned
+    console.log('Promise assigned to window.ourCoaches:', window.ourCoaches);
+
+    // Use the data once the promise resolves
+    window.ourCoaches.then(data => {
+      console.log('Resolved data:', data);
+    });
+  };
+</script>
+
 <body>
 
 <!-- Header Image -->

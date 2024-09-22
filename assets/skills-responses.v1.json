@@ -1,0 +1,1270 @@
+{
+  "type": "counseling skill matrix",
+  "counselors": [
+    {
+      "name": "Cory D.",
+      "ratings": [
+        {
+          "kind": "Male Counselor",
+          "rating": 3
+        },
+        {
+          "kind": "Female Counselor",
+          "rating": 5
+        },
+        {
+          "kind": "Relationship Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Stress Management",
+          "rating": 1
+        },
+        {
+          "kind": "Career Guidance",
+          "rating": 3
+        },
+        {
+          "kind": "Health & Wellness",
+          "rating": 2
+        },
+        {
+          "kind": "Anxiety Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Depression Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Trauma Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Grief Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Family Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Parenting Support",
+          "rating": 2
+        },
+        {
+          "kind": "Self-Esteem Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Anger Management",
+          "rating": 3
+        },
+        {
+          "kind": "Substance Abuse Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "PTSD Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Identity Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Body Image Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Life Transitions Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "LGBTQIA+ Support",
+          "rating": 3
+        },
+        {
+          "kind": "Eating Disorders Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Addiction Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Mindfulness Therapy",
+          "rating": 2
+        },
+        {
+          "kind": "Sleep Issues Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Couples Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Chronic Pain Management",
+          "rating": 4
+        },
+        {
+          "kind": "Social Skills Training",
+          "rating": 5
+        },
+        {
+          "kind": "Conflict Resolution",
+          "rating": 1
+        },
+        {
+          "kind": "Assertiveness Training",
+          "rating": 2
+        },
+        {
+          "kind": "Guilt & Shame Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Sexual Health Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "ADHD/ADD Support",
+          "rating": 1
+        },
+        {
+          "kind": "Autism Spectrum Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Performance Anxiety Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Spiritual Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Divorce & Separation Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Executive Coaching",
+          "rating": 1
+        },
+        {
+          "kind": "Leadership Development",
+          "rating": 1
+        },
+        {
+          "kind": "Time Management Coaching",
+          "rating": 1
+        },
+        {
+          "kind": "Public Speaking & Presentation Skills",
+          "rating": 2
+        },
+        {
+          "kind": "Conflict Resolution in the Workplace",
+          "rating": 5
+        },
+        {
+          "kind": "Work-Life Balance Coaching",
+          "rating": 2
+        },
+        {
+          "kind": "Career Advancement Strategies",
+          "rating": 5
+        },
+        {
+          "kind": "Professional Mentorship",
+          "rating": 4
+        },
+        {
+          "kind": "Team Building & Collaboration",
+          "rating": 4
+        },
+        {
+          "kind": "Organizational Change Management",
+          "rating": 2
+        },
+        {
+          "kind": "Fear of Flying Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Phobia Desensitization",
+          "rating": 4
+        },
+        {
+          "kind": "Confidence Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Resilience Training",
+          "rating": 3
+        },
+        {
+          "kind": "Fitness Accountability Coaching",
+          "rating": 2
+        },
+        {
+          "kind": "Motivation & Habit Formation",
+          "rating": 5
+        },
+        {
+          "kind": "Peak Performance Coaching",
+          "rating": 2
+        },
+        {
+          "kind": "Fear of Public Speaking",
+          "rating": 3
+        },
+        {
+          "kind": "Stress Reduction Techniques",
+          "rating": 5
+        },
+        {
+          "kind": "Healthy Aging & Longevity Coaching",
+          "rating": 1
+        },
+        {
+          "kind": "Weight Loss & Body Transformation Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Overcoming Social Anxiety",
+          "rating": 1
+        },
+        {
+          "kind": "Leadership Resilience and Crisis Management",
+          "rating": 4
+        },
+        {
+          "kind": "Decision-Making & Problem-Solving Skills",
+          "rating": 2
+        },
+        {
+          "kind": "Entrepreneurial Mindset Coaching",
+          "rating": 1
+        },
+        {
+          "kind": "Personality Disorders",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "name": "David J.",
+      "ratings": [
+        {
+          "kind": "Male Counselor",
+          "rating": 3
+        },
+        {
+          "kind": "Female Counselor",
+          "rating": 5
+        },
+        {
+          "kind": "Relationship Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Stress Management",
+          "rating": 1
+        },
+        {
+          "kind": "Career Guidance",
+          "rating": 3
+        },
+        {
+          "kind": "Health & Wellness",
+          "rating": 2
+        },
+        {
+          "kind": "Anxiety Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Depression Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Trauma Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Grief Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Family Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Parenting Support",
+          "rating": 1
+        },
+        {
+          "kind": "Self-Esteem Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Anger Management",
+          "rating": 3
+        },
+        {
+          "kind": "Substance Abuse Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "PTSD Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Identity Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Body Image Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Life Transitions Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "LGBTQIA+ Support",
+          "rating": 5
+        },
+        {
+          "kind": "Eating Disorders Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Addiction Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Mindfulness Therapy",
+          "rating": 2
+        },
+        {
+          "kind": "Sleep Issues Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Couples Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Chronic Pain Management",
+          "rating": 2
+        },
+        {
+          "kind": "Social Skills Training",
+          "rating": 3
+        },
+        {
+          "kind": "Conflict Resolution",
+          "rating": 5
+        },
+        {
+          "kind": "Assertiveness Training",
+          "rating": 4
+        },
+        {
+          "kind": "Guilt & Shame Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Sexual Health Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "ADHD/ADD Support",
+          "rating": 2
+        },
+        {
+          "kind": "Autism Spectrum Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Performance Anxiety Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Spiritual Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Divorce & Separation Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Executive Coaching",
+          "rating": 2
+        },
+        {
+          "kind": "Leadership Development",
+          "rating": 4
+        },
+        {
+          "kind": "Time Management Coaching",
+          "rating": 3
+        },
+        {
+          "kind": "Public Speaking & Presentation Skills",
+          "rating": 1
+        },
+        {
+          "kind": "Conflict Resolution in the Workplace",
+          "rating": 5
+        },
+        {
+          "kind": "Work-Life Balance Coaching",
+          "rating": 3
+        },
+        {
+          "kind": "Career Advancement Strategies",
+          "rating": 2
+        },
+        {
+          "kind": "Professional Mentorship",
+          "rating": 1
+        },
+        {
+          "kind": "Team Building & Collaboration",
+          "rating": 5
+        },
+        {
+          "kind": "Organizational Change Management",
+          "rating": 2
+        },
+        {
+          "kind": "Fear of Flying Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Phobia Desensitization",
+          "rating": 4
+        },
+        {
+          "kind": "Confidence Coaching",
+          "rating": 3
+        },
+        {
+          "kind": "Resilience Training",
+          "rating": 1
+        },
+        {
+          "kind": "Fitness Accountability Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Motivation & Habit Formation",
+          "rating": 2
+        },
+        {
+          "kind": "Peak Performance Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Fear of Public Speaking",
+          "rating": 3
+        },
+        {
+          "kind": "Stress Reduction Techniques",
+          "rating": 4
+        },
+        {
+          "kind": "Healthy Aging & Longevity Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Weight Loss & Body Transformation Coaching",
+          "rating": 2
+        },
+        {
+          "kind": "Overcoming Social Anxiety",
+          "rating": 3
+        },
+        {
+          "kind": "Leadership Resilience and Crisis Management",
+          "rating": 4
+        },
+        {
+          "kind": "Decision-Making & Problem-Solving Skills",
+          "rating": 1
+        },
+        {
+          "kind": "Entrepreneurial Mindset Coaching",
+          "rating": 2
+        },
+        {
+          "kind": "Personality Disorders",
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "name": "Kari T.",
+      "ratings": [
+        {
+          "kind": "Male Counselor",
+          "rating": 2
+        },
+        {
+          "kind": "Female Counselor",
+          "rating": 2
+        },
+        {
+          "kind": "Relationship Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Stress Management",
+          "rating": 5
+        },
+        {
+          "kind": "Career Guidance",
+          "rating": 2
+        },
+        {
+          "kind": "Health & Wellness",
+          "rating": 4
+        },
+        {
+          "kind": "Anxiety Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Depression Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Trauma Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Grief Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Family Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Parenting Support",
+          "rating": 1
+        },
+        {
+          "kind": "Self-Esteem Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Anger Management",
+          "rating": 1
+        },
+        {
+          "kind": "Substance Abuse Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "PTSD Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Identity Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Body Image Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Life Transitions Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "LGBTQIA+ Support",
+          "rating": 1
+        },
+        {
+          "kind": "Eating Disorders Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Addiction Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Mindfulness Therapy",
+          "rating": 2
+        },
+        {
+          "kind": "Sleep Issues Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Couples Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Chronic Pain Management",
+          "rating": 4
+        },
+        {
+          "kind": "Social Skills Training",
+          "rating": 1
+        },
+        {
+          "kind": "Conflict Resolution",
+          "rating": 5
+        },
+        {
+          "kind": "Assertiveness Training",
+          "rating": 5
+        },
+        {
+          "kind": "Guilt & Shame Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Sexual Health Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "ADHD/ADD Support",
+          "rating": 4
+        },
+        {
+          "kind": "Autism Spectrum Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Performance Anxiety Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Spiritual Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Divorce & Separation Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Executive Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Leadership Development",
+          "rating": 5
+        },
+        {
+          "kind": "Time Management Coaching",
+          "rating": 1
+        },
+        {
+          "kind": "Public Speaking & Presentation Skills",
+          "rating": 1
+        },
+        {
+          "kind": "Conflict Resolution in the Workplace",
+          "rating": 4
+        },
+        {
+          "kind": "Work-Life Balance Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Career Advancement Strategies",
+          "rating": 2
+        },
+        {
+          "kind": "Professional Mentorship",
+          "rating": 5
+        },
+        {
+          "kind": "Team Building & Collaboration",
+          "rating": 5
+        },
+        {
+          "kind": "Organizational Change Management",
+          "rating": 5
+        },
+        {
+          "kind": "Fear of Flying Coaching",
+          "rating": 1
+        },
+        {
+          "kind": "Phobia Desensitization",
+          "rating": 4
+        },
+        {
+          "kind": "Confidence Coaching",
+          "rating": 3
+        },
+        {
+          "kind": "Resilience Training",
+          "rating": 2
+        },
+        {
+          "kind": "Fitness Accountability Coaching",
+          "rating": 2
+        },
+        {
+          "kind": "Motivation & Habit Formation",
+          "rating": 3
+        },
+        {
+          "kind": "Peak Performance Coaching",
+          "rating": 3
+        },
+        {
+          "kind": "Fear of Public Speaking",
+          "rating": 3
+        },
+        {
+          "kind": "Stress Reduction Techniques",
+          "rating": 5
+        },
+        {
+          "kind": "Healthy Aging & Longevity Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Weight Loss & Body Transformation Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Overcoming Social Anxiety",
+          "rating": 3
+        },
+        {
+          "kind": "Leadership Resilience and Crisis Management",
+          "rating": 1
+        },
+        {
+          "kind": "Decision-Making & Problem-Solving Skills",
+          "rating": 2
+        },
+        {
+          "kind": "Entrepreneurial Mindset Coaching",
+          "rating": 1
+        },
+        {
+          "kind": "Personality Disorders",
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "name": "Alex M.",
+      "ratings": [
+        {
+          "kind": "Male Counselor",
+          "rating": 1
+        },
+        {
+          "kind": "Female Counselor",
+          "rating": 2
+        },
+        {
+          "kind": "Relationship Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Stress Management",
+          "rating": 3
+        },
+        {
+          "kind": "Career Guidance",
+          "rating": 5
+        },
+        {
+          "kind": "Health & Wellness",
+          "rating": 1
+        },
+        {
+          "kind": "Anxiety Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Depression Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Trauma Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Grief Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Family Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Parenting Support",
+          "rating": 2
+        },
+        {
+          "kind": "Self-Esteem Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Anger Management",
+          "rating": 2
+        },
+        {
+          "kind": "Substance Abuse Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "PTSD Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Identity Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Body Image Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Life Transitions Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "LGBTQIA+ Support",
+          "rating": 5
+        },
+        {
+          "kind": "Eating Disorders Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Addiction Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Mindfulness Therapy",
+          "rating": 2
+        },
+        {
+          "kind": "Sleep Issues Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Couples Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Chronic Pain Management",
+          "rating": 5
+        },
+        {
+          "kind": "Social Skills Training",
+          "rating": 3
+        },
+        {
+          "kind": "Conflict Resolution",
+          "rating": 1
+        },
+        {
+          "kind": "Assertiveness Training",
+          "rating": 5
+        },
+        {
+          "kind": "Guilt & Shame Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Sexual Health Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "ADHD/ADD Support",
+          "rating": 3
+        },
+        {
+          "kind": "Autism Spectrum Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Performance Anxiety Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Spiritual Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Divorce & Separation Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Executive Coaching",
+          "rating": 3
+        },
+        {
+          "kind": "Leadership Development",
+          "rating": 1
+        },
+        {
+          "kind": "Time Management Coaching",
+          "rating": 1
+        },
+        {
+          "kind": "Public Speaking & Presentation Skills",
+          "rating": 5
+        },
+        {
+          "kind": "Conflict Resolution in the Workplace",
+          "rating": 4
+        },
+        {
+          "kind": "Work-Life Balance Coaching",
+          "rating": 1
+        },
+        {
+          "kind": "Career Advancement Strategies",
+          "rating": 4
+        },
+        {
+          "kind": "Professional Mentorship",
+          "rating": 2
+        },
+        {
+          "kind": "Team Building & Collaboration",
+          "rating": 4
+        },
+        {
+          "kind": "Organizational Change Management",
+          "rating": 4
+        },
+        {
+          "kind": "Fear of Flying Coaching",
+          "rating": 3
+        },
+        {
+          "kind": "Phobia Desensitization",
+          "rating": 2
+        },
+        {
+          "kind": "Confidence Coaching",
+          "rating": 2
+        },
+        {
+          "kind": "Resilience Training",
+          "rating": 1
+        },
+        {
+          "kind": "Fitness Accountability Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Motivation & Habit Formation",
+          "rating": 1
+        },
+        {
+          "kind": "Peak Performance Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Fear of Public Speaking",
+          "rating": 2
+        },
+        {
+          "kind": "Stress Reduction Techniques",
+          "rating": 5
+        },
+        {
+          "kind": "Healthy Aging & Longevity Coaching",
+          "rating": 2
+        },
+        {
+          "kind": "Weight Loss & Body Transformation Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Overcoming Social Anxiety",
+          "rating": 2
+        },
+        {
+          "kind": "Leadership Resilience and Crisis Management",
+          "rating": 3
+        },
+        {
+          "kind": "Decision-Making & Problem-Solving Skills",
+          "rating": 3
+        },
+        {
+          "kind": "Entrepreneurial Mindset Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Personality Disorders",
+          "rating": 1
+        }
+      ]
+    },
+    {
+      "name": "Ted S.",
+      "ratings": [
+        {
+          "kind": "Male Counselor",
+          "rating": 3
+        },
+        {
+          "kind": "Female Counselor",
+          "rating": 1
+        },
+        {
+          "kind": "Relationship Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Stress Management",
+          "rating": 4
+        },
+        {
+          "kind": "Career Guidance",
+          "rating": 4
+        },
+        {
+          "kind": "Health & Wellness",
+          "rating": 1
+        },
+        {
+          "kind": "Anxiety Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Depression Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Trauma Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Grief Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Family Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Parenting Support",
+          "rating": 1
+        },
+        {
+          "kind": "Self-Esteem Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Anger Management",
+          "rating": 1
+        },
+        {
+          "kind": "Substance Abuse Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "PTSD Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Identity Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Body Image Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Life Transitions Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "LGBTQIA+ Support",
+          "rating": 3
+        },
+        {
+          "kind": "Eating Disorders Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Addiction Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Mindfulness Therapy",
+          "rating": 5
+        },
+        {
+          "kind": "Sleep Issues Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Couples Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Chronic Pain Management",
+          "rating": 4
+        },
+        {
+          "kind": "Social Skills Training",
+          "rating": 5
+        },
+        {
+          "kind": "Conflict Resolution",
+          "rating": 4
+        },
+        {
+          "kind": "Assertiveness Training",
+          "rating": 5
+        },
+        {
+          "kind": "Guilt & Shame Counseling",
+          "rating": 1
+        },
+        {
+          "kind": "Sexual Health Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "ADHD/ADD Support",
+          "rating": 4
+        },
+        {
+          "kind": "Autism Spectrum Counseling",
+          "rating": 5
+        },
+        {
+          "kind": "Performance Anxiety Counseling",
+          "rating": 4
+        },
+        {
+          "kind": "Spiritual Counseling",
+          "rating": 2
+        },
+        {
+          "kind": "Divorce & Separation Counseling",
+          "rating": 3
+        },
+        {
+          "kind": "Executive Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Leadership Development",
+          "rating": 3
+        },
+        {
+          "kind": "Time Management Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Public Speaking & Presentation Skills",
+          "rating": 1
+        },
+        {
+          "kind": "Conflict Resolution in the Workplace",
+          "rating": 4
+        },
+        {
+          "kind": "Work-Life Balance Coaching",
+          "rating": 3
+        },
+        {
+          "kind": "Career Advancement Strategies",
+          "rating": 4
+        },
+        {
+          "kind": "Professional Mentorship",
+          "rating": 3
+        },
+        {
+          "kind": "Team Building & Collaboration",
+          "rating": 3
+        },
+        {
+          "kind": "Organizational Change Management",
+          "rating": 5
+        },
+        {
+          "kind": "Fear of Flying Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Phobia Desensitization",
+          "rating": 4
+        },
+        {
+          "kind": "Confidence Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Resilience Training",
+          "rating": 3
+        },
+        {
+          "kind": "Fitness Accountability Coaching",
+          "rating": 3
+        },
+        {
+          "kind": "Motivation & Habit Formation",
+          "rating": 1
+        },
+        {
+          "kind": "Peak Performance Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Fear of Public Speaking",
+          "rating": 2
+        },
+        {
+          "kind": "Stress Reduction Techniques",
+          "rating": 1
+        },
+        {
+          "kind": "Healthy Aging & Longevity Coaching",
+          "rating": 4
+        },
+        {
+          "kind": "Weight Loss & Body Transformation Coaching",
+          "rating": 2
+        },
+        {
+          "kind": "Overcoming Social Anxiety",
+          "rating": 1
+        },
+        {
+          "kind": "Leadership Resilience and Crisis Management",
+          "rating": 4
+        },
+        {
+          "kind": "Decision-Making & Problem-Solving Skills",
+          "rating": 2
+        },
+        {
+          "kind": "Entrepreneurial Mindset Coaching",
+          "rating": 5
+        },
+        {
+          "kind": "Personality Disorders",
+          "rating": 1
+        }
+      ]
+    }
+  ]
+}
