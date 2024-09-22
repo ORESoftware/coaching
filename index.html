@@ -798,6 +798,16 @@
     checkEmptyMessage();
   }
 
+  function getCounselorImageName(counselorName) {
+    // Remove spaces and convert to lowercase
+    const formattedName = counselorName.toLowerCase().replace(/\s/g, '');
+
+    // Conditionally add '.jpg' or 'jpg' based on whether the name ends with a dot
+    const imageName = formattedName + (counselorName.endsWith('.') ? 'jpg' : '.jpg');
+
+    return imageName;
+  }
+
   function updateReorderButtons() {
     const rightGroup = document.getElementById('group-right');
     const bubbles = [...rightGroup.querySelectorAll('.bubble')];
@@ -823,6 +833,7 @@
 
   // Search button logic with counselor ranking
   document.getElementById('search-button').addEventListener('click', async () => {
+    console.log('clicked.');
     const selectedBubbles = [...document.getElementById('group-right').querySelectorAll('.bubble')];
     const bubbleDataArray = selectedBubbles.map((bubble, index) => {
       return {
@@ -853,11 +864,16 @@
       counselorRankings.push({ name: counselor.name, rank });
     });
 
+    console.log('counselor rankings:', counselorRankings);
+
     // Sort counselors by their rank
     counselorRankings.sort((a, b) => b.rank - a.rank);
 
     // Get the top 10 ranked counselors
     const topCounselors = counselorRankings.slice(0, 10);
+
+    console.log('top counselors:', topCounselors);
+
 
     // Clear existing search results
     const searchResults = document.getElementById('people-container');
@@ -869,12 +885,13 @@
       scrollItem.className = 'scroll-item';
       scrollItem.setAttribute('data-name', counselor.name);
       scrollItem.innerHTML = `
-        <img src="imgs/dd-${counselor.name.toLowerCase().replace(/\s/g, '')}.jpg" alt="${counselor.name}">
+        <img src="imgs/dd-${getCounselorImageName(counselor.name)}" alt="${counselor.name}">
         <div class="scroll-footer">
           <h3>${counselor.name}</h3>
           <p>Rank: ${counselor.rank}</p>
         </div>
       `;
+      console.log('appending item:', scrollItem)
       searchResults.appendChild(scrollItem);
     });
   });
