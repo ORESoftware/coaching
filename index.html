@@ -543,7 +543,7 @@
         </div>
     </div>
     <button id="search-button">Search</button>
-    <div id="search-results"></div>
+    <div id="search-results">(search results:)</div>
 </section>
 
 
@@ -565,16 +565,19 @@
     }
   }
 
+  window.counselorMap = new Map();
+  window.ourCoaches = loadJson();
+
   // Assign the returned promise to the global variable
-  window.onload = function() {
-    window.ourCoaches = loadJson();  // Assign the promise from loadJson
+  window.onload = async function() {
+    // Assign the promise from loadJson
     // Log to see if the promise has been assigned
     console.log('Promise assigned to window.ourCoaches:', window.ourCoaches);
 
+    const ourCoaches = await window.ourCoaches;
     // Use the data once the promise resolves
-    window.ourCoaches.then(data => {
-      console.log('Resolved data:', data);
-    });
+    console.log('Resolved data:', ourCoaches);
+
   };
 
   // Smooth Scrolling
@@ -844,12 +847,12 @@
 
     // Load counselor data
     const counselorsData = await window.ourCoaches;
+    const counselors = counselorsData && counselorsData.counselors;
 
-    // Create a hashmap for counselors with their ratings
-    const counselorMap = new Map();
-    counselorsData.counselors.forEach(counselor => {
-      counselorMap.set(counselor.name.toLowerCase(), counselor);
-    });
+    if(!(counselors && counselors.length > 0)) {
+      alert("No counseling data yet, loading...");
+      return;
+    }
 
     // Rank counselors based on the selected bubbles
     const counselorRankings = [];
@@ -876,7 +879,7 @@
 
 
     // Clear existing search results
-    const searchResults = document.getElementById('people-container');
+    const searchResults = document.getElementById('search-results');
     searchResults.innerHTML = '';
 
     // Display the top counselors
@@ -930,5 +933,23 @@
       }
     }, 3000);
   }
+
+
+  (async () => {
+    // Create a hashmap for counselors with their ratings
+    const counselorsData = await window.ourCoaches;
+    const counselors = counselorsData && counselorsData.counselors;
+
+    if(!(counselors && counselors.length)){
+      alert('missing counselors data, in search routine.')
+      return;
+    }
+
+    counselors.forEach(counselor => {
+      window.counselorMap.set(counselor.name.toLowerCase(), counselor);
+    });
+
+  })();
+
 </script>
 </html>
