@@ -9,7 +9,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #2F4F4F;
+            background-color: #E0F7FA;
         }
 
         .center-image {
@@ -38,6 +39,8 @@
             width: 80px;
             transition: width 0.3s, height 0.3s;
             cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .header-image:hover {
@@ -53,25 +56,21 @@
             gap: 15px;
         }
 
-        .social-media-container a {
-            display: block;
+        .social-media-container img {
             width: 30px;
             height: 30px;
+            object-fit: contain;
+            border-radius: 5px;
+            transition: box-shadow 0.3s;
         }
 
-        .social-media-container img {
-            width: 100%;
-            height: auto;
-            max-width: 50px;
-            max-height: 50px;
-            min-width: 20px;
-            min-height: 20px;
-            object-fit: contain;
+        .social-media-container img:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         nav {
-            background-color: #8B4513;
-            color: #fff;
+            background-color: #00796B;
+            color: white;
             padding: 15px;
             position: fixed;
             width: calc(100% - 20px);
@@ -79,7 +78,6 @@
             z-index: 1000;
             left: 0;
             display: flex;
-            align-items: center;
             justify-content: center;
         }
 
@@ -88,96 +86,27 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 15px;
+            gap: 15px;
         }
 
         nav ul li a {
-            color: #fff;
+            color: white;
             text-decoration: none;
             font-weight: bold;
             font-size: 16px;
-            cursor: pointer;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-            position: fixed;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1500;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                width: 100%;
-                left: 0;
-                top: 60px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                position: fixed;
-                top: 60px;
-                left: 0;
-                background-color: #8B4513;
-                width: 100%;
-                padding: 20px;
-                margin: 0;
-                display: none;
-                z-index: 1000;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .bubble {
-                font-size: 12px; /* Smaller font size on mobile */
-                flex-wrap: wrap; /* Ensure content fits within mobile width */
-            }
-        }
-
-        .show-menu {
-            display: flex !important;
         }
 
         section {
             padding: 100px 20px;
             margin-top: 60px;
-            background-color: #C0C0C0;
         }
 
-        #about { background-color: #C0C0C0; }
-        #people { background-color: #D3D3D3; }
-        #contact { background-color: #E0E0E0; }
-        #testimonials { background-color: #F0F0F0; }
-
-        /* Vertically Scrollable Container for Counselors */
         .scroll-container {
             max-height: 600px;
             overflow-y: auto;
             display: grid;
-            gap: 20px;
             grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             padding: 20px;
         }
 
@@ -188,142 +117,47 @@
             text-align: center;
         }
 
+        /* Coach Image Styling with Yellow Border */
         .scroll-item img {
             height: 200px;
             width: auto;
-            transition: height 0.3s;
-            cursor: pointer;
+            border-radius: 15px;
+            border: 5px solid yellow;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .scroll-item img:hover {
-            height: 300px;
-        }
-
-        .scroll-footer {
-            margin-top: 10px;
-        }
-
-        .scroll-footer h3 {
-            margin: 10px 0 5px 0;
-            font-size: 18px;
-            color: #8B4513;
-        }
-
-        .scroll-footer p {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-
-        /* Mobile Viewport Adjustments */
-        @media (max-width: 768px) {
-            .scroll-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .find-counselor {
-            padding: 50px 20px;
-            background-color: #E6E6FA;
-        }
-
-        .group-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            height: 50vh; /* Make the left and right boxes scrollable with max height of half the screen height */
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
         .bubble-group {
             width: 45%;
-            border: 2px dashed #8B4513;
+            border: 2px dashed #00796B;
             padding: 20px;
-            background-color: #fff;
             border-radius: 10px;
-            position: relative;
-            overflow-y: auto; /* Make the left and right boxes scrollable */
+            background-color: white;
         }
 
         .bubble {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            margin-bottom: 10px;
-            background-color: #D3D3D3;
+            background-color: #B2DFDB;
             border-radius: 20px;
-            cursor: pointer;
-            text-align: left;
-            user-select: none;
-            position: relative;
-            transition: transform 0.6s, box-shadow 0.3s ease, opacity 0.3s ease, background-color 0.6s ease, color 2s ease;
-            transform-style: preserve-3d;
-            font-size: 14px; /* Default font size */
-        }
-
-        .bubble-placeholder {
-            background-color: #C0C0C0;
-            border: 2px dashed #8B4513;
-            border-radius: 20px;
-            height: 40px;
-            margin-bottom: 10px;
-        }
-
-        .bubble .order-number {
-            font-weight: bold;
-            color: #8B4513;
-            margin-right: 10px;
-        }
-
-        .highlight {
-            color: #00f; /* Bright blue text for highlight */
-        }
-
-        #search-input {
-            margin-bottom: 20px;
             padding: 10px;
-            width: 100%;
-            max-width: 50%; /* Limit the width to half the screen width */
-            font-size: 16px;
-            border: 2px solid #8B4513;
-            border-radius: 5px;
-        }
-
-        #search-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #8B4513;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
+            margin-bottom: 10px;
             cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
-        #search-results {
-            margin-top: 20px;
-            font-weight: bold;
-            color: #8B4513;
+        .bubble:hover {
+            background-color: #4DB6AC;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Text to show when right group is empty */
-        .empty-message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #8B4513;
-            font-style: italic;
-            display: none;
-        }
-
-        /* Buttons for mobile reordering */
-        .reorder-button {
-            margin-left: 5px;
-            padding: 5px 10px;
-            background-color: #8B4513;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 12px;
+        @media (max-width: 768px) {
+            .scroll-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -366,7 +200,7 @@
 
 <!-- Sections -->
 <section id="about">
-    <h2>About Dancing Dragons Counseling</h2>
+    <h2>About Dancing Dragons Coaching</h2>
     <p>You may have found us via Instagram!</p>
     <p>We are an affordable alternative to "therapy" - we practice practical coaching and counseling, internationally. </p>
     <p>Masculine and feminine coaching + counseling.</p>
@@ -494,6 +328,23 @@
                 <h3>Tyler K.</h3>
                 <p>Group Therapy for Young People</p>
                 <p>Education and Entrepreneurship</p>
+            </div>
+        </div>
+        <div class="scroll-item" data-name="David R." data-specialty="career guidance">
+            <img src="imgs/dd-davidr.jpg" alt="David R.">
+            <div class="scroll-footer">
+                <h3>David R.</h3>
+                <p>Coaching For Education</p>
+                <p>Homeschooling Expert</p>
+                <p>Professional Homeschooling Consultant</p>
+            </div>
+        </div>
+        <div class="scroll-item" data-name="Corey M." data-specialty="career guidance">
+            <img src="imgs/dd-coreym.jpg" alt="Corey M.">
+            <div class="scroll-footer">
+                <h3>Corey M.</h3>
+                <p>Youth Coaching</p>
+                <p>Classic Life Coaching</p>
             </div>
         </div>
     </div>
