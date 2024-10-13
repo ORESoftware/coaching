@@ -250,6 +250,18 @@
             }
         }
 
+        #abc {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.5s ease;
+        }
+
+        #abc.expanded {
+            height: auto;
+            /* Temporary height for animation */
+            max-height: 1000px; /* Adjust this value as needed for content size */
+        }
+
     </style>
 </head>
 
@@ -309,37 +321,41 @@
 <section id="about">
     <h2>About Dancing Dragons Coaching</h2>
     <p>You may have found us via Instagram, LinkedIn, etc!</p>
-    <p>We are an affordable alternative to "therapy" - we do practical coaching and counseling, internationally. </p>
-    <p>Masculine and feminine coaching.</p>
-    <p>Adaptive styles focused on solutions; with goal-setting and behavioral changes, mindset changes.</p>
-    <p>International (geographically unbounded) - English only for now.</p>
-    <p>Conservative and practical coaching for those ages 18+</p>
-    <p>Holistic, compassionate, and future-focused. Philosophically-grounded but practical.</p>
-    <p>Discuss issues surrounding:</p>
-    <ul>
-        <li>Relationships</li>
-        <li>Stressors</li>
-        <li>Basic money/business/finance</li>
-        <li>Children/parents</li>
-        <li>Goals, education, career</li>
-        <li>Drugs, addictions, habits</li>
-        <li>Health + Wellness + Fitness</li>
-        <li>Sexual Identity, dating</li>
-        <li>Solutions</li>
-    </ul>
-    <p>With specific expertise in:</p>
-    <ul>
-        <li>Fitness, Wellness</li>
-        <li>Homeschooling and independent education</li>
-        <li>Leadership and Executive Coaching</li>
-        <li>Addiction</li>
-        <li>Goals, education, career</li>
-        <li>Drugs, addictions, habits</li>
-        <li>Health + Wellness + Fitness</li>
-        <li>Sexual Identity, dating</li>
-        <li>Solutions</li>
-    </ul>
+
+    <button id="toggleButton">Read More</button>
+
+    <div id="abc">
+        <p>We are an affordable alternative to "therapy" - we do practical coaching - people helping people. </p>
+        <p>Masculine and feminine coaching.</p>
+        <p>Adaptive styles focused on solutions; with goal-setting and behavioral changes, mindset changes.</p>
+        <p>Holistic, compassionate, and future-focused. Philosophically-grounded but practical.</p>
+        <p>Discuss issues surrounding:</p>
+        <ul>
+            <li>Relationships</li>
+            <li>Stressors</li>
+            <li>Basic money/business/finance</li>
+            <li>Children/parents</li>
+            <li>Goals, education, career</li>
+            <li>Drugs, addictions, habits</li>
+            <li>Health + Wellness + Fitness</li>
+            <li>Sexual Identity, dating</li>
+            <li>Solutions</li>
+        </ul>
+        <p>With specific expertise in:</p>
+        <ul>
+            <li>Fitness, Wellness</li>
+            <li>Homeschooling and independent education</li>
+            <li>Leadership and Executive Coaching</li>
+            <li>Addiction</li>
+            <li>Goals, education, career</li>
+            <li>Drugs, addictions, habits</li>
+            <li>Health + Wellness + Fitness</li>
+            <li>Sexual Identity, dating</li>
+            <li>Solutions</li>
+        </ul>
+    </div>
 </section>
+
 
 <!-- Search Bar -->
 <section id="people">
@@ -488,9 +504,9 @@
     <p>"The only man who behaves sensibly is my tailor/(and coach!); he takes my measurements anew every time he sees me, while all the rest go on with their old measurements and expect them to fit me." - GBS</p>
 </section>
 
-<!-- Find a Counselor Section -->
+<!-- Find a Coach Section -->
 <section id="find-counselor" class="find-counselor">
-    <h2>Find a Counselor</h2>
+    <h2>Find a Coach</h2>
     <div class="group-container">
         <div id="group-left" class="bubble-group">
             <div class="bubble" data-group="left" draggable="true" data-name="Male Counselor">Man/Male Counselor</div>
@@ -577,10 +593,10 @@
         <h2>Contact</h2>
         <p>Please reach out for more information on our services.</p>
         <p>Email: support@dancingdragons.cc</p>
+        <div class="footer-logo">
+            <img src="imgs/img.png" alt="Dancing Dragons Logo">
+        </div>
     </section>
-    <div class="footer-logo">
-        <img src="imgs/img.png" alt="Dancing Dragons Logo">
-    </div>
 </footer>
 
 </body>
@@ -971,6 +987,31 @@
   }
 
 
+  const abc = document.getElementById('abc');
+  const toggleButton = document.getElementById('toggleButton');
+
+  toggleButton.addEventListener('click', () => {
+    if (abc.classList.contains('expanded')) {
+      // Collapse the div
+      abc.style.height = `${abc.scrollHeight}px`; // Set height to current height
+      requestAnimationFrame(() => {
+        abc.style.height = '0';
+      });
+      abc.classList.remove('expanded');
+      toggleButton.textContent = 'Read More';
+    } else {
+      // Expand the div
+      abc.style.height = `${abc.scrollHeight}px`; // Set height to content height
+      abc.classList.add('expanded');
+      toggleButton.textContent = 'Read Less';
+
+      abc.addEventListener('transitionend', () => {
+        abc.style.height = 'auto'; // Set to auto after animation
+      }, { once: true });
+    }
+  });
+
+
   (async () => {
     // Create a hashmap for counselors with their ratings
     const counselorsData = await window.ourCoaches;
@@ -984,6 +1025,7 @@
     counselors.forEach(counselor => {
       window.counselorMap.set(counselor.name.toLowerCase(), counselor);
     });
+
 
   })();
 
