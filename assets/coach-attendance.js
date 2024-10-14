@@ -3,7 +3,7 @@ exports.coaches = {
     {
       "firstName": "David",
       "lastName": "J.",
-      "attendance": 1  //
+      "attendance": 1  // busy but wants a piece
     },
     {
       "firstName": "Cory",
