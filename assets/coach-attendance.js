@@ -18,7 +18,7 @@ exports.coaches = {
     {
       "firstName": "Kari",
       "lastName": "T.",
-      "attendance": 5  // the best
+      "attendance": 6  // the best
     },
     {
       "firstName": "Alex",
@@ -28,7 +28,7 @@ exports.coaches = {
     {
       "firstName": "Gidge",
       "lastName": "B.",
-      "attendance": 5  // very good Boston Queen
+      "attendance": 6  // very good Boston Queen
     },
     {
       "firstName": "Kevin",
@@ -38,7 +38,7 @@ exports.coaches = {
     {
       "firstName": "Elijah",
       "lastName": "G.",
-      "attendance": 3 // good work with the new baby
+      "attendance": 4 // good work with the new baby
     },
     {
       "firstName": "Tim",
