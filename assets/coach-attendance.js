@@ -73,22 +73,22 @@ exports.coaches = {
     {
       "firstName": "Mavrick",
       "lastName": "G.",
-      "attendance": 0 // corey is busy but he wants a piece soon
+      "attendance": 0 // mavrick is new to DD
     },
     {
       "firstName": "Jeffrey",
       "lastName": "P.",
-      "attendance": 0 // corey is busy but he wants a piece soon
+      "attendance": 0 // jeffrey is new to DD
     },
     {
       "firstName": "Hardip",
       "lastName": "R.",
-      "attendance": 0 // corey is busy but he wants a piece soon
+      "attendance": 0 // deep is new to DD
     },
     {
       "firstName": "Jess",
       "lastName": "R.",
-      "attendance": 0 // corey is busy but he wants a piece soon
+      "attendance": 0 // jess is new to DD
     }
   ]
 }
