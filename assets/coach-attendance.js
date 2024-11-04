@@ -13,7 +13,7 @@ exports.coaches = {
     {
       "firstName": "Ted",
       "lastName": "S.",
-      "attendance": 1  // show up again Ted lol
+      "attendance": 2 // ted's input highly valuable
     },
     {
       "firstName": "Kari",
@@ -28,17 +28,17 @@ exports.coaches = {
     {
       "firstName": "Gidge",
       "lastName": "B.",
-      "attendance": 6  // very good Boston Queen
+      "attendance": 7 // top attendance! 
     },
     {
       "firstName": "Kevin",
       "lastName": "L.",
-      "attendance": 4  // Kevin gets good marks
+      "attendance": 5, // Kevin gets good marks
     },
     {
       "firstName": "Elijah",
       "lastName": "G.",
-      "attendance": 4 // good work with the new baby
+      "attendance": 5 // good work with the new baby
     },
     {
       "firstName": "Tim",
