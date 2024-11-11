@@ -1,6 +1,6 @@
 we could use the issues page, but for now:
 
-1. improve css etc using vanillajs or similar
+1. improve css etc using vanillajs, nextjs, or similar
 2. improve coach search
 3. improve dnd and design for coach matching
 4. move images to cdn

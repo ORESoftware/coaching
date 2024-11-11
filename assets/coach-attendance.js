@@ -13,12 +13,12 @@ exports.coaches = {
     {
       "firstName": "Ted",
       "lastName": "S.",
-      "attendance": 3 // ted's input highly valuable
+      "attendance": 4 // ted's input highly valuable
     },
     {
       "firstName": "Kari",
       "lastName": "T.",
-      "attendance": 7  // the best
+      "attendance": 8  // the best
     },
     {
       "firstName": "Alex",
@@ -28,17 +28,17 @@ exports.coaches = {
     {
       "firstName": "Gidge",
       "lastName": "B.",
-      "attendance": 8 // top attendance!
+      "attendance": 9 // top attendance!
     },
     {
       "firstName": "Kevin",
       "lastName": "L.",
-      "attendance": 6 // Kevin gets good marks
+      "attendance": 7 // Kevin gets good marks
     },
     {
       "firstName": "Elijah",
       "lastName": "G.",
-      "attendance": 6 // good work with the new baby
+      "attendance": 7 // good work with the new baby
     },
     {
       "firstName": "Tim",
@@ -58,7 +58,7 @@ exports.coaches = {
     {
       "firstName": "Tyler",
       "lastName": "K.",
-      "attendance": 2 // brand new and thanks for taking part
+      "attendance": 3 // brand new and thanks for taking part
     },
     {
       "firstName": "David",
