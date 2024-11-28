@@ -3,7 +3,7 @@ exports.coaches = {
     {
       "firstName": "David",
       "lastName": "J.",
-      "attendance": 1  // busy but wants a piece
+      "attendance": 2  // busy but wants a piece
     },
     {
       "firstName": "Cory",
@@ -38,7 +38,7 @@ exports.coaches = {
     {
       "firstName": "Elijah",
       "lastName": "G.",
-      "attendance": 8 // good work with the new baby
+      "attendance": 9 // good work with the new baby
     },
     {
       "firstName": "Tim",
@@ -48,7 +48,7 @@ exports.coaches = {
     {
       "firstName": "Franklin",
       "lastName": "V.",
-      "attendance": 4  // thanks Franklin for just joining and staying onboard
+      "attendance": 5,  // thanks Franklin for just joining and staying onboard
     },
     {
       "firstName": "Aaron",
@@ -83,7 +83,7 @@ exports.coaches = {
     {
       "firstName": "Hardip",
       "lastName": "R.",
-      "attendance": 2 // deep is new to DD
+      "attendance": 3 // deep is new to DD
     },
     {
       "firstName": "Jess",
