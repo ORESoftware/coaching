@@ -18,7 +18,7 @@ exports.coaches = {
     {
       "firstName": "Kari",
       "lastName": "T.",
-      "attendance": 10  // the best
+      "attendance": 11  // the best
     },
     {
       "firstName": "Alex",
@@ -28,17 +28,17 @@ exports.coaches = {
     {
       "firstName": "Gidge",
       "lastName": "B.",
-      "attendance": 10 // top attendance!
+      "attendance": 11 // top attendance!
     },
     {
       "firstName": "Kevin",
       "lastName": "L.",
-      "attendance": 9 // Kevin gets good marks
+      "attendance": 10 // Kevin gets good marks
     },
     {
       "firstName": "Elijah",
       "lastName": "G.",
-      "attendance": 10 // good work with the new baby
+      "attendance": 11 // good work with the new baby
     },
     {
       "firstName": "Tim",
@@ -48,12 +48,12 @@ exports.coaches = {
     {
       "firstName": "Franklin",
       "lastName": "V.",
-      "attendance": 6,  // thanks Franklin for just joining and staying onboard
+      "attendance": 7,  // thanks Franklin for just joining and staying onboard
     },
     {
       "firstName": "Aaron",
       "lastName": "F.",
-      "attendance": 2  // Aaron is busy but remains interested
+      "attendance": 3  // Aaron is busy but remains interested
     },
     {
       "firstName": "Tyler",
@@ -83,12 +83,22 @@ exports.coaches = {
     {
       "firstName": "Hardip",
       "lastName": "R.",
-      "attendance": 4 // deep is new to DD
+      "attendance": 5 // deep is new to DD
     },
     {
       "firstName": "Jess",
       "lastName": "R.",
-      "attendance": 1 // jess is new to DD
+      "attendance": 2 // jess is new to DD
+    },
+    {
+      "firstName": "Chris",
+      "lastName": "X.",
+      "attendance": 4 // jess is new to DD
+    },
+    {
+      "firstName": "Will",
+      "lastName": "X.",
+      "attendance": 2 // jess is new to DD
     }
   ]
 }
